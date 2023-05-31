@@ -16,24 +16,24 @@ public class SolarSystemManager : MonoBehaviour
             Destroy(this);
     }
 
-    private void Update()
-    {
-        foreach (CelestialBody body in celestialBodies)
-        {
-            body.gravitationalPull = Vector3.zero;
-        }
+    // private void Update()
+    // {
+    //     foreach (CelestialBody body in celestialBodies)
+    //     {
+    //         body.gravitationalPull = Vector3.zero;
+    //     }
         
-        foreach (CelestialBody bodyA in celestialBodies)
-        {
-            foreach (CelestialBody bodyB in celestialBodies)
-            {
-                if (bodyA != bodyB)
-                {
-                    bodyB.ApplyAttractionForce(bodyA);
-                }
-            }
-        }
-    }
+    //     foreach (CelestialBody bodyA in celestialBodies)
+    //     {
+    //         foreach (CelestialBody bodyB in celestialBodies)
+    //         {
+    //             if (bodyA != bodyB)
+    //             {
+    //                 bodyB.ApplyAttractionForce(bodyA);
+    //             }
+    //         }
+    //     }
+    // }
 
     public void RegisterBody(CelestialBody body) => celestialBodies.Add(body);
     public void UnregisterBody(CelestialBody body) => celestialBodies.Remove(body);

@@ -1,94 +1,75 @@
+//================================================================
+// Darmstadt University of Applied Sciences, Expanded Realities
+// Course:      Project 6 (Grimm, Hausmeier)
+// Group:       #6 (Out of Orbit)
+// Script by:   Daniel Heilmann (771144)
+//================================================================
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CelestialBody : MonoBehaviour
 {
-    public float independantVelocity;
-    public float attractionForce;
-    public Vector3 gravitationalPull;
-    public Vector3 stick;
+    //# Orbiting 
+    [Header("Orbiting Around Center")]
+    public Transform orbitCenter;
+    public float orbitDistance;
+    public float orbitingSpeed = 1f;
+    public Quaternion orbitAngle;
 
-    private Transform planetModel;
+    //# Rotating 
+    [Header("Rotating Around Self")]
+    public float rotationsPerSecond = 1f;
+    public Vector3 rotationInclination;
 
-    private void Start()
-    {
-        SolarSystemManager.instance.RegisterBody(this);
-        planetModel = GetComponentInChildren<Transform>();
-    }
-
-    private void LateUpdate()
-    {
-        transform.right = gravitationalPull;
-
-        transform.position += (gravitationalPull + independantVelocity * transform.forward) * Time.deltaTime;
-
-        //TODO: Remove rotation drift introduced by orbiting
-        // RotateAroundSelf();
-    }
-
-    public void ApplyAttractionForce(CelestialBody source)
-    {
-        Vector3 VectorToSource = (source.transform.position - this.transform.position);
-        Vector3 direction = VectorToSource.normalized;
-        float distance = VectorToSource.magnitude;
-        gravitationalPull += direction * Mathf.Clamp(source.attractionForce - this.attractionForce, 0, float.MaxValue);
-    }
-
-    private void RotateAroundSelf()
-    {
-        planetModel.up = stick;
-        Debug.DrawLine(transform.position - transform.up * 2, transform.position + transform.up * 2, Color.red, Time.deltaTime);
-        Debug.Log($"transform.up is {transform.up}");
-        planetModel.RotateAround(transform.position, transform.up, Time.timeSinceLevelLoad * 0.2f * 360f);
-    }
-}
-
-/*
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CelestialBody : MonoBehaviour
-{
-    public float independantVelocity;
-    public float attractionForce;
-    public Vector3 gravitationalPull;
-    public Vector3 stick;
-
+    //# Private Variables 
+    private float timeSinceOrbitStart;
+    private Vector3 newPos;
     private GameObject planetModel;
 
+    //# Monobehaviour Methods
     private void Start()
     {
-        SolarSystemManager.instance.RegisterBody(this);
-        planetModel = GetComponentInChildren<Transform>().gameObject;
+        planetModel = GetComponentInChildren<MeshRenderer>().gameObject;
+
+        if (orbitCenter == null)
+        {
+            Debug.LogWarning($"{this.name} does not have an orbiting center assigned.");
+            return;
+        }
+
+        // GameObject emptyOrbitingCenterObject = new GameObject($"OrbitingCenter of {this.name}");
+        // emptyOrbitingCenterObject.transform.SetParent(orbitCenter);
+        // orbitCenter = emptyOrbitingCenterObject.transform;  //< Reassign orbitCenter to newly created gameobject
+        // transform.SetParent(orbitCenter);
     }
 
     private void LateUpdate()
     {
-        transform.right = gravitationalPull;
+        if (orbitCenter == null)
+            return;
 
-        transform.position += (gravitationalPull + independantVelocity * transform.forward) * Time.deltaTime;
-
-        RotateAroundSelf();
+        // orbitCenter.localRotation = orbitAngle;
+        Orbit();
+        transform.position = Vector3.MoveTowards(transform.position, newPos, orbitingSpeed);
+        // Rotate();
     }
 
-    public void ApplyAttractionForce(CelestialBody source)
+    //# Private Methods 
+    private void Orbit()
     {
-        Vector3 VectorToSource = (source.transform.position - this.transform.position);
-        Vector3 direction = VectorToSource.normalized;
-        float distance = VectorToSource.magnitude;
-        gravitationalPull += direction * Mathf.Clamp(source.attractionForce - this.attractionForce, 0, float.MaxValue);
+        timeSinceOrbitStart += Time.deltaTime;
+        float mathInput = timeSinceOrbitStart * (orbitingSpeed / orbitDistance);
+
+        newPos = orbitCenter.position + new Vector3(Mathf.Sin(mathInput) * orbitDistance, 0, Mathf.Cos(mathInput) * orbitDistance);
+        Debug.Log($"newPos is {newPos}");
     }
 
-    private void RotateAroundSelf()
+    private void Rotate()
     {
-        planetModel.transform.rotation = Quaternion.Inverse(this.transform.rotation);
-
-        planetModel.transform.up = stick;
-        Debug.DrawLine(planetModel.transform.position - planetModel.transform.up * 2, planetModel.transform.position + planetModel.transform.up * 2, Color.red, Time.deltaTime);
-        Debug.Log($"model's transform.up is {planetModel.transform.up}");
-        planetModel.transform.RotateAround(planetModel.transform.position, planetModel.transform.up, Time.timeSinceLevelLoad * 0.2f * 360f);
+        // transform.localRotation = Quaternion.Inverse(orbitAngle);
+        // planetModel.transform.Rotate(new Vector3(0, 0, 360f * rotationsPerSecond), Space.Self);
+        transform.RotateAround(transform.position, transform.up, timeSinceOrbitStart * rotationsPerSecond * 360f);
     }
 }
-*/
