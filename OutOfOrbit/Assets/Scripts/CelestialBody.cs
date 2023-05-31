@@ -1,64 +1,94 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CelestialBody : MonoBehaviour
 {
-    public GameObject orbitsAround;
-    public float orbitingSpeed = 1f;
-    public float distance = 1f;
-    public Quaternion orbitingAngle;
-    public float rotationsPerSecond = 1f;
-    public Vector3 inclination;
-    private float timeSinceOrbitStart = 0f;
-    private GameObject realOrbitingCenter = null;
+    public float independantVelocity;
+    public float attractionForce;
+    public Vector3 gravitationalPull;
+    public Vector3 stick;
 
-    public static CelestialBody Construct(GameObject AttachComponentToThis, GameObject orbitsAround, float speed, float distance, Quaternion orbitingAngle)
-    {
-        CelestialBody component = AttachComponentToThis.AddComponent<CelestialBody>();
-        component.orbitsAround = orbitsAround;
-        component.orbitingSpeed = speed;
-        component.distance = distance;
-        component.orbitingAngle = orbitingAngle;
-        return component;
-    }
+    private Transform planetModel;
 
     private void Start()
     {
-        if (orbitsAround == null)
-        {
-            Debug.LogWarning($"{this.name} does not have an orbiting center.");
-            return;
-        }
-
-        realOrbitingCenter = new GameObject($"RotationOrigin of {this.name}");
-        realOrbitingCenter.transform.SetParent(orbitsAround.transform);
-        transform.SetParent(realOrbitingCenter.transform);
+        SolarSystemManager.instance.RegisterBody(this);
+        planetModel = GetComponentInChildren<Transform>();
     }
 
     private void LateUpdate()
     {
-        if (orbitsAround != null)
-            Orbit();
+        transform.right = gravitationalPull;
 
+        transform.position += (gravitationalPull + independantVelocity * transform.forward) * Time.deltaTime;
+
+        //TODO: Remove rotation drift introduced by orbiting
         // RotateAroundSelf();
     }
 
-    private void Orbit()
+    public void ApplyAttractionForce(CelestialBody source)
     {
-        realOrbitingCenter.transform.localRotation = orbitingAngle;
-        // this.transform.localRotation = Quaternion.Inverse(orbitingAngle);
-
-        ////////////////////////////////
-
-        timeSinceOrbitStart += Time.deltaTime;
-
-        Vector3 newPos;
-        newPos = new Vector3(Mathf.Sin(timeSinceOrbitStart * (orbitingSpeed / distance)) * distance, 0, Mathf.Cos(timeSinceOrbitStart * (orbitingSpeed / distance)) * distance);
-
-        transform.localPosition = newPos;
+        Vector3 VectorToSource = (source.transform.position - this.transform.position);
+        Vector3 direction = VectorToSource.normalized;
+        float distance = VectorToSource.magnitude;
+        gravitationalPull += direction * Mathf.Clamp(source.attractionForce - this.attractionForce, 0, float.MaxValue);
     }
 
     private void RotateAroundSelf()
     {
-        transform.RotateAround(transform.position, transform.up, timeSinceOrbitStart * rotationsPerSecond * 360f);
+        planetModel.up = stick;
+        Debug.DrawLine(transform.position - transform.up * 2, transform.position + transform.up * 2, Color.red, Time.deltaTime);
+        Debug.Log($"transform.up is {transform.up}");
+        planetModel.RotateAround(transform.position, transform.up, Time.timeSinceLevelLoad * 0.2f * 360f);
     }
 }
+
+/*
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CelestialBody : MonoBehaviour
+{
+    public float independantVelocity;
+    public float attractionForce;
+    public Vector3 gravitationalPull;
+    public Vector3 stick;
+
+    private GameObject planetModel;
+
+    private void Start()
+    {
+        SolarSystemManager.instance.RegisterBody(this);
+        planetModel = GetComponentInChildren<Transform>().gameObject;
+    }
+
+    private void LateUpdate()
+    {
+        transform.right = gravitationalPull;
+
+        transform.position += (gravitationalPull + independantVelocity * transform.forward) * Time.deltaTime;
+
+        RotateAroundSelf();
+    }
+
+    public void ApplyAttractionForce(CelestialBody source)
+    {
+        Vector3 VectorToSource = (source.transform.position - this.transform.position);
+        Vector3 direction = VectorToSource.normalized;
+        float distance = VectorToSource.magnitude;
+        gravitationalPull += direction * Mathf.Clamp(source.attractionForce - this.attractionForce, 0, float.MaxValue);
+    }
+
+    private void RotateAroundSelf()
+    {
+        planetModel.transform.rotation = Quaternion.Inverse(this.transform.rotation);
+
+        planetModel.transform.up = stick;
+        Debug.DrawLine(planetModel.transform.position - planetModel.transform.up * 2, planetModel.transform.position + planetModel.transform.up * 2, Color.red, Time.deltaTime);
+        Debug.Log($"model's transform.up is {planetModel.transform.up}");
+        planetModel.transform.RotateAround(planetModel.transform.position, planetModel.transform.up, Time.timeSinceLevelLoad * 0.2f * 360f);
+    }
+}
+*/
