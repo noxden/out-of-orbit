@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 99563043}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,6 +207,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 7.714, y: 180, z: 0}
+--- !u!1 &211315979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211315980}
+  - component: {fileID: 211315981}
+  m_Layer: 0
+  m_Name: Central Star
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &211315980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211315979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1237997741}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211315981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211315979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e447ce3aa3795e440b4ba81028e46cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbitCenter: {fileID: 0}
+  orbitDistance: 0
+  orbitingSpeed: 1
+  orbitAngle: {x: 0, y: 0, z: 0, w: 0}
+  rotationsPerSecond: 1
+  rotationInclination: {x: 0, y: 0, z: 0}
 --- !u!1 &313360452
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +352,90 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &497612907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497612908}
+  - component: {fileID: 497612910}
+  - component: {fileID: 497612909}
+  m_Layer: 0
+  m_Name: Planet Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497612908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497612907}
+  m_LocalRotation: {x: 0.59322864, y: -0, z: -0, w: 0.8050341}
+  m_LocalPosition: {x: 0, y: 3.97, z: -1.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 938470920}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 72.773, y: 0, z: 0}
+--- !u!81 &497612909
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497612907}
+  m_Enabled: 1
+--- !u!20 &497612910
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497612907}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &938470918
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,10 +465,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e447ce3aa3795e440b4ba81028e46cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  independantVelocity: 1
-  attractionForce: 0
-  gravitationalPull: {x: 0, y: 0, z: 0}
-  stick: {x: 1, y: 0, z: 1}
+  orbitCenter: {fileID: 211315980}
+  orbitDistance: 20
+  orbitingSpeed: 1
+  orbitAngle: {x: 0, y: 0, z: 0, w: 1}
+  rotationsPerSecond: 0.2
+  rotationInclination: {x: 0, y: 0, z: 0}
 --- !u!4 &938470920
 Transform:
   m_ObjectHideFlags: 0
@@ -347,6 +484,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1942442027}
+  - {fileID: 497612908}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -501,9 +639,8 @@ GameObject:
   - component: {fileID: 1237997740}
   - component: {fileID: 1237997739}
   - component: {fileID: 1237997738}
-  - component: {fileID: 1237997742}
   m_Layer: 0
-  m_Name: Central Star
+  m_Name: Model Central Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -579,31 +716,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237997737}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 313360453}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 211315980}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1237997742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237997737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e447ce3aa3795e440b4ba81028e46cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  independantVelocity: 0
-  attractionForce: 0.1
-  gravitationalPull: {x: 0, y: 0, z: 0}
-  stick: {x: 0, y: 0, z: 0}
 --- !u!1 &1942442022
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +738,7 @@ GameObject:
   - component: {fileID: 1942442025}
   - component: {fileID: 1942442024}
   m_Layer: 0
-  m_Name: Model
+  m_Name: Model Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
