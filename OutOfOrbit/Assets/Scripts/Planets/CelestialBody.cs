@@ -7,11 +7,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CelestialBodyType { Planet, Star, Moon, Collected }
+
 [ExecuteInEditMode]
 [RequireComponent(typeof(Rigidbody))]
 public class CelestialBody : GravityObject
 {
     //# Inspector 
+    public CelestialBodyType type;
     public string bodyName = "Unnamed";
     Transform meshHolder;
     public float radius;
