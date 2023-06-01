@@ -14,6 +14,6 @@ public class PlanetRotation : MonoBehaviour
     private void Rotate()
     {
         Debug.DrawLine(transform.position + transform.up, transform.position - transform.up, Color.white, Universe.physicsTimeStep);
-        transform.RotateAround(transform.position, transform.right, Universe.physicsTimeStep * rotationsPerSecond * 360f);
+        transform.RotateAround(transform.position, transform.up, Universe.physicsTimeStep * rotationsPerSecond * 360f);
     }
 }
