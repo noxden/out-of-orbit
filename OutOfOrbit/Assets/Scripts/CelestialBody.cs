@@ -39,7 +39,7 @@ public class CelestialBody : MonoBehaviour
         if (orbitsAround != null)
             Orbit();
 
-        // RotateAroundSelf();
+        RotateAroundSelf();
     }
 
     private void Orbit()
@@ -59,6 +59,6 @@ public class CelestialBody : MonoBehaviour
 
     private void RotateAroundSelf()
     {
-        transform.RotateAround(transform.position, transform.up, timeSinceOrbitStart * rotationsPerSecond * 360f);
+        transform.RotateAround(transform.position, transform.up, Time.deltaTime * rotationsPerSecond * 360f);
     }
 }
