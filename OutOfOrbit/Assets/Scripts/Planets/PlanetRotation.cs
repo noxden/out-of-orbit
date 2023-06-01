@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PlanetRotation : MonoBehaviour
 {
+    public Vector3 rotationAxisTilt;
     public float rotationsPerSecond = 1f;
+
+    private void Start()
+    {
+        transform.localRotation = Quaternion.Euler(rotationAxisTilt);
+    }
 
     private void FixedUpdate()
     {
