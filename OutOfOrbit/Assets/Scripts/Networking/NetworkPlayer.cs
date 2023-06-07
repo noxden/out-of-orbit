@@ -17,6 +17,7 @@ public class NetworkPlayer : MonoBehaviour
             foreach (var renderer in GetComponentsInChildren<Renderer>())
                 renderer.enabled = false;
             _myOrigin = FindObjectOfType<XROrigin>();
+            if (_myOrigin == null) Debug.LogWarning($"XROrigin could not be found in scene.");
         }
     }
     private void Update()
@@ -26,6 +27,7 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(_Head, XRNode.Head);
             MapPosition(_RightHand, XRNode.RightHand);
             MapPosition(_LeftHand, XRNode.LeftHand);
+            if (_myOrigin == null) return;
             transform.position = _myOrigin.transform.position;
             transform.rotation = _myOrigin.transform.rotation;
         }
