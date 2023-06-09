@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     private float moveSpeed = 10f;
     [SerializeField] private float bounds = 3f;
+    [SerializeField] private bool isAutoMoving;
 
     private void Update()
     {
@@ -14,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), Mathf.Sin(Time.timeSinceLevelLoad * 2) * 0.3f, Input.GetAxis("Vertical"));
+        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), (isAutoMoving ? Mathf.Sin(Time.timeSinceLevelLoad * 2) * 0.3f : 0), Input.GetAxis("Vertical"));
         transform.Translate(moveDir * moveSpeed * Time.deltaTime);
         transform.position = UniformVectorClamp(transform.position, -bounds, bounds); //< To keep the camera from going out of bounds
     }
