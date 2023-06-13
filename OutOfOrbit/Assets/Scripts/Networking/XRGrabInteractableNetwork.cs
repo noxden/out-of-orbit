@@ -2,7 +2,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(Rigidbody), typeof(PhotonView), typeof(PhotonRigidbodyView))]
+[RequireComponent(typeof(PhotonView), typeof(PhotonRigidbodyView))]
 public class XRGrabInteractableNetwork : XRGrabInteractable
 {
     private PhotonView _photonView;
