@@ -8,11 +8,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         ConnectedToServer();
     }
+    
     private void ConnectedToServer()
     {
         PhotonNetwork.ConnectUsingSettings();
         Debug.Log("Try To Connect To Server...");
     }
+
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected To Server.");
@@ -23,11 +25,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         roomOptions.IsOpen = true;
         PhotonNetwork.JoinOrCreateRoom("DefaultRoom", roomOptions, TypedLobby.Default);
     }
+
+    public override void OnCreatedRoom()
+    {
+        
+        Debug.Log($"Opened up a new room (named \"{PhotonNetwork.CurrentRoom.Name}\").");
+        base.OnCreatedRoom();
+    }
+
     public override void OnJoinedRoom()
     {
-        Debug.Log("Join a room.");
+        Debug.Log("Joined a room.");
         base.OnJoinedRoom();
     }
+
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("New player joined the room");
