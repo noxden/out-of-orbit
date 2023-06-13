@@ -260,7 +260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a2e9ad0a0b969874c86da62aea2f9d04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615c5ba30c0a67046815ee3688e8aa9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: 78ce1067b7109a349832ef64d712aafa, type: 2}
   txt2imgInput:
     prompt: alien, cyan tint
     negative_prompt: disfigured, blurry, grainy, hair
@@ -457,18 +458,21 @@ MonoBehaviour:
     height: 512
     cfg_scale: 7
     seed: -1
+    rotate180: 0
     enable_hr: 0
     hr_upscaler: Latent
     upscalerModel: 1
     hr_second_pass_steps: 0
     denoising_strength: 0.7
     hr_scale: 2
-    useExtra: 0
+    useExtra: 1
+    showSteps: 1
     extraInput:
       image: 
       resize_mode: 1
       upscaling_resize: 2
       upscaler_1: None
+    saveImageToFile: 0
   useRenderers: 1
   targetRenderers:
   - {fileID: 120664872}
