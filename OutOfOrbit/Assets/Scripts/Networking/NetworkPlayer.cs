@@ -49,12 +49,12 @@ public class NetworkPlayer : MonoBehaviour
     private void UpdateHandAnimation(InputDevice targetDevice, Animator handAnimator)
     {
         if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
-            handAnimator.SetFloat("Pinch", triggerValue);
+            handAnimator.SetFloat("Trigger", triggerValue);
         else
-            handAnimator.SetFloat("Pinch", 0);
+            handAnimator.SetFloat("Trigger", 0);
         if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
-            handAnimator.SetFloat("Flex", gripValue);
+            handAnimator.SetFloat("Grip", gripValue);
         else
-            handAnimator.SetFloat("Flex", 0);
+            handAnimator.SetFloat("Grip", 0);
     }
 }
