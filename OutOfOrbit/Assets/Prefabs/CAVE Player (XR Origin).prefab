@@ -1324,7 +1324,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 6965074097129443131, guid: 67bb8c0cab1e651418e0ad35a741d5f8, type: 3}
   m_RotationInput:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Rotation
       m_Type: 0
@@ -1332,15 +1332,7 @@ MonoBehaviour:
       m_Id: 2958ac05-b5b3-4ee5-ba79-82dc26a40084
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 23be1313-5ba3-4500-b033-2f010d872743
-        m_Path: <XRHMD>/centerEyeRotation
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Rotation
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 5653411764931356595, guid: 67bb8c0cab1e651418e0ad35a741d5f8, type: 3}
   m_TrackingStateInput:
