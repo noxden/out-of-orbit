@@ -6,9 +6,7 @@ public class NetworkPlayer : MonoBehaviour
 {
     [SerializeField] private Transform _Head;
     [SerializeField] private Transform _RightHand;
-    [SerializeField] private Animator _RightAnimator;
     [SerializeField] private Transform _LeftHand;
-    [SerializeField] private Animator _LeftAnimator;
     private XROrigin _myOrigin;
     private PhotonView _PhotonView;
     private void Start()
@@ -30,9 +28,6 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(_RightHand, XRNode.RightHand);
             MapPosition(_LeftHand, XRNode.LeftHand);
 
-            UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), _RightAnimator);
-            UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), _LeftAnimator);
-
             if (_myOrigin == null) return;
             transform.position = _myOrigin.transform.position;
             transform.rotation = _myOrigin.transform.rotation;
@@ -44,17 +39,5 @@ public class NetworkPlayer : MonoBehaviour
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion rotation);
         target.transform.localPosition = position;
         target.transform.localRotation = rotation;
-    }
-
-    private void UpdateHandAnimation(InputDevice targetDevice, Animator handAnimator)
-    {
-        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
-            handAnimator.SetFloat("Trigger", triggerValue);
-        else
-            handAnimator.SetFloat("Trigger", 0);
-        if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
-            handAnimator.SetFloat("Grip", gripValue);
-        else
-            handAnimator.SetFloat("Grip", 0);
     }
 }
