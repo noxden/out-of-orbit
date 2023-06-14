@@ -1155,6 +1155,7 @@ GameObject:
   - component: {fileID: 6535171225413673213}
   - component: {fileID: 3035318144423005158}
   - component: {fileID: 3120867678607502126}
+  - component: {fileID: 3102840289510594357}
   m_Layer: 0
   m_Name: CAVE Player (XR Origin)
   m_TagString: Untagged
@@ -1211,6 +1212,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: 67bb8c0cab1e651418e0ad35a741d5f8, type: 3}
+--- !u!114 &3102840289510594357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921552526975987553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a475a3306c401448bde967c31b3078f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3065514689228713586
 GameObject:
   m_ObjectHideFlags: 0
