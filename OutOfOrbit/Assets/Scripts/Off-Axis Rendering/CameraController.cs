@@ -24,7 +24,8 @@ public class CameraController : MonoBehaviour
     {
         Vector3 output;
         output.x = Mathf.Clamp(input.x, min, max);
-        output.y = Mathf.Clamp(input.y, min, max);
+        // output.y = Mathf.Clamp(input.y, min, max);
+        output.y = input.y;
         output.z = Mathf.Clamp(input.z, min, max);
         return output;
     }
