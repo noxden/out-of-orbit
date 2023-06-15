@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CAVE Player (XR Origin)
       objectReference: {fileID: 0}
+    - target: {fileID: 2921552526975987553, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4930732585555567401, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
       propertyPath: near clip plane
       value: 0.04400004
@@ -247,6 +251,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &589013809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1596620721580674632, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.329
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13759589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.532
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.47801247
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.87835306
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 237.111
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101714445170807145, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306744004087069619, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
+      propertyPath: m_Name
+      value: HMD Player (XR Origin)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2919003027985675202, guid: 81ee60cb18ca15d4b927715700743cfc, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2919003027985675202, guid: 81ee60cb18ca15d4b927715700743cfc, type: 3}
       propertyPath: m_LocalScale.x
