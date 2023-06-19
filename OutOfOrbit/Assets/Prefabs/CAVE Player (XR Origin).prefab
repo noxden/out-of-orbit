@@ -878,7 +878,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6535171225413673213}
-  - component: {fileID: 3035318144423005158}
   - component: {fileID: 3120867678607502126}
   - component: {fileID: 3102840289510594357}
   m_Layer: 0
@@ -906,23 +905,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3035318144423005158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2921552526975987553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
-  m_OriginBaseGameObject: {fileID: 2921552526975987553}
-  m_CameraFloorOffsetObject: {fileID: 4465940573827233438}
-  m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.1176
 --- !u!114 &3120867678607502126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,6 +941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 860991459714841735}
+  - component: {fileID: 2873437962773535390}
   - component: {fileID: 1397748389912487380}
   - component: {fileID: 4396867332277151762}
   - component: {fileID: 6281681725962624217}
@@ -992,6 +975,23 @@ Transform:
   m_Father: {fileID: 6535171225413673213}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2873437962773535390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065514689228713586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  m_OriginBaseGameObject: {fileID: 2921552526975987553}
+  m_CameraFloorOffsetObject: {fileID: 4465940573827233438}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
 --- !u!114 &1397748389912487380
 MonoBehaviour:
   m_ObjectHideFlags: 0
