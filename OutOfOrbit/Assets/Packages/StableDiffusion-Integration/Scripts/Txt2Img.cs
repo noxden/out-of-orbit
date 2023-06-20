@@ -80,7 +80,7 @@ namespace StableDiffusion
                 }
                 else
                 {
-                    Debug.Log("SD: Login successful!");
+                    // Debug.Log("SD: Login successful!");
 
                     if (renderers == null && responseEvents == null)
                     {
@@ -104,18 +104,18 @@ namespace StableDiffusion
                         getReq.method = "POST";
                         getReq.SetRequestHeader("Content-Type", "application/json");
 
-                        Debug.Log("SD: txt2img request Sent!");
+                        // Debug.Log("SD: txt2img request Sent!");
                         yield return getReq.SendWebRequest();
 
                         //Handle HTTP error
                         if (getReq.result != UnityWebRequest.Result.Success)
                         {
-                            Debug.Log($"SD: txt2img request Failed: {getReq.result} {getReq.error}");
+                            Debug.LogWarning($"SD: txt2img request Failed: {getReq.result} {getReq.error}");
                         }
                         //Handle successful HTTP request
                         else
                         {
-                            Debug.Log("SD: txt2img request Complete!");
+                            // Debug.Log("SD: txt2img request Complete!");
                             // Access the response data from getReq.downloadHandler
                             //Task<Texture2D[]> task = GetTexturesFromtxt2imgAsync(getReq.downloadHandler.text, txt2imgInput.rotate180);
                             //yield return new WaitUntil(() => task.IsCompleted);
@@ -164,7 +164,7 @@ namespace StableDiffusion
                 }
                 else
                 {
-                    Debug.Log("SD: Login successful!");
+                    // bug.Log("SD: Login successful!");
 
 
                     txt2imgInput.Initialize(); //update hidden values to their true values
@@ -254,7 +254,7 @@ namespace StableDiffusion
 
                 if (input.rotate180)
                 {
-                    //reverse the array to rotate the image 180° as it is otherwise imported upside down
+                    //reverse the array to rotate the image 180ï¿½ as it is otherwise imported upside down
                     Color[] pix = tex.GetPixels();
                     Array.Reverse(pix, 0, pix.Length);
                     tex.SetPixels(pix);
@@ -290,7 +290,7 @@ namespace StableDiffusion
 
                 if (rotate180)
                 {
-                    //reverse the array to rotate the image 180° as it is otherwise imported upside down
+                    //reverse the array to rotate the image 180ï¿½ as it is otherwise imported upside down
                     Color[] pix = texture2Ds[i].GetPixels();
                     Array.Reverse(pix, 0, pix.Length);
                     texture2Ds[i].SetPixels(pix);
@@ -394,7 +394,7 @@ namespace StableDiffusion
         public int seed = -1;
         #endregion
 
-        [Label("Rotate by 180°"), AllowNesting, Tooltip("Should we rotate the resulting image(s) by 180°? This is a bugfix since the images are loaded upside down into unity.")]
+        [Label("Rotate by 180ï¿½"), AllowNesting, Tooltip("Should we rotate the resulting image(s) by 180ï¿½? This is a bugfix since the images are loaded upside down into unity.")]
         public bool rotate180 = false;
 
         [Space(20)]

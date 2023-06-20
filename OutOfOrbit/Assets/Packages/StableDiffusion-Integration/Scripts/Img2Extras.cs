@@ -22,18 +22,18 @@ namespace StableDiffusion
                     getExtras.method = "POST";
                     getExtras.SetRequestHeader("Content-Type", "application/json");
 
-                    Debug.Log("SD: img2extra request Sent!");
+                    // Debug.Log("SD: img2extra request Sent!");
                     yield return getExtras.SendWebRequest();
 
                     //Handle HTTP error
                     if (getExtras.result != UnityWebRequest.Result.Success)
                     {
-                        Debug.Log($"SD: img2extra request Failed: {getExtras.result} {getExtras.error}");
+                        Debug.LogWarning($"SD: img2extra request Failed: {getExtras.result} {getExtras.error}");
                     }
                     //Handle successful HTTP request
                     else
                     {
-                        Debug.Log("SD: img2extra request Complete!");
+                        // Debug.Log("SD: img2extra request Complete!");
                         // Access the response data from getReq.downloadHandler
                         string responseJsonData = getExtras.downloadHandler.text;
 
