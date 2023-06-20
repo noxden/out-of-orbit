@@ -17,13 +17,16 @@ public class NetworkPlayer : MonoBehaviour
         if (_PhotonView.IsMine)
         {
             name = "NetworkPlayer (Mine)";
-            foreach (var renderer in GetComponentsInChildren<Renderer>())
-                renderer.enabled = false;
+            if (!Settings.showOwnedNetworkPlayer)
+            {
+                foreach (var renderer in GetComponentsInChildren<Renderer>())
+                    renderer.enabled = false;
+            }
             _myOrigin = FindObjectOfType<XROrigin>();
             if (_myOrigin == null) Debug.LogWarning($"XROrigin could not be found in scene.");
         }
         else
-        name = $"NetworkPlayer (Client {_PhotonView.CreatorActorNr})";
+            name = $"NetworkPlayer (Client {_PhotonView.CreatorActorNr})";
     }
     private void Update()
     {
