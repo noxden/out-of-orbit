@@ -42,7 +42,7 @@ public class HandPresence : MonoBehaviour
             }
             else
             {
-                Debug.Log("Did not find corresponding controller model");
+                // Debug.Log("Did not find corresponding controller model");
             }
 
             spawnedHandModel = Instantiate(handModelPrefab, transform);
