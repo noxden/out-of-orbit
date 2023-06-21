@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 3102840289510594357}
   m_Layer: 0
   m_Name: CAVE Player (XR Origin)
-  m_TagString: Untagged
+  m_TagString: CAVEPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2296,7 +2296,7 @@ GameObject:
   - component: {fileID: 536797075201702197}
   m_Layer: 0
   m_Name: Head Tracker
-  m_TagString: MainCamera
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2401,7 +2401,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7787051102100421077}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.7372549, g: 0.101960786, b: 0.49803922, a: 0}

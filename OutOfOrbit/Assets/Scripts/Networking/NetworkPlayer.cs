@@ -32,7 +32,11 @@ public class NetworkPlayer : MonoBehaviour
     {
         if (_PhotonView.IsMine)
         {
-            MapPosition(_Head, XRNode.Head);
+            if (Settings.playMode == PlayMode.CAVE)
+                MapPositionByGameObject(_Head, PlayerHandler.Head);
+            else
+                MapPosition(_Head, XRNode.Head);
+
             MapPosition(_RightHand, XRNode.RightHand);
             MapPosition(_LeftHand, XRNode.LeftHand);
 
@@ -40,10 +44,20 @@ public class NetworkPlayer : MonoBehaviour
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), _LeftAnimator);
 
             if (_myOrigin == null) return;
-            transform.position = _myOrigin.transform.position;
-            transform.rotation = _myOrigin.transform.rotation;
+            transform.position = _myOrigin.transform.localPosition;
+            transform.rotation = _myOrigin.transform.localRotation;
         }
     }
+
+    private void MapPositionByGameObject(Transform target, GameObject device)   //< Only use for CAVE, you will get weird results when using with HMD, this was developed as a solution for just the CAVE
+    {
+        if (device == null)
+            return;
+
+        target.transform.localPosition = device.transform.position;
+        target.transform.localRotation = device.transform.rotation;     //TODO: Needs to be rotated as the default ViveTracker rotation is forward and not up :(
+    }
+
     private void MapPosition(Transform target, XRNode node)
     {
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);
