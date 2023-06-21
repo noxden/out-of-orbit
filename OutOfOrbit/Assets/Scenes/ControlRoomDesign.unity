@@ -423,10 +423,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HMD Player (XR Origin)
       objectReference: {fileID: 0}
-    - target: {fileID: 8306744004087069619, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
