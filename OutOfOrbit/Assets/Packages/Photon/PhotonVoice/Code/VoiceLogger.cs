@@ -109,7 +109,7 @@ namespace Photon.Voice.Unity
         }
         private static string GetFormatString(DebugLevel level, string tag, string objName,  string fmt)
         {
-            return string.Format("[{0}] [{1}] [{2}] [{3}] {4}", GetTimestamp(), level, tag, objName, fmt);
+            return string.Format("[{1}] [{2}] [{3}] {4}", GetTimestamp(), level, tag, objName, fmt);
         }
 
         private static string GetTimestamp()

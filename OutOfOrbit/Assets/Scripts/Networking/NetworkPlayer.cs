@@ -16,28 +16,48 @@ public class NetworkPlayer : MonoBehaviour
         _PhotonView = GetComponent<PhotonView>();
         if (_PhotonView.IsMine)
         {
-            foreach (var renderer in GetComponentsInChildren<Renderer>())
-                renderer.enabled = false;
+            name = "NetworkPlayer (Mine)";
+            if (!Settings.showOwnedNetworkPlayer)
+            {
+                foreach (var renderer in GetComponentsInChildren<Renderer>())
+                    renderer.enabled = false;
+            }
             _myOrigin = FindObjectOfType<XROrigin>();
             if (_myOrigin == null) Debug.LogWarning($"XROrigin could not be found in scene.");
         }
+        else
+            name = $"NetworkPlayer (Client {_PhotonView.CreatorActorNr})";
     }
     private void Update()
     {
         if (_PhotonView.IsMine)
         {
-            MapPosition(_Head, XRNode.Head);
-            MapPosition(_RightHand, XRNode.RightHand);
-            MapPosition(_LeftHand, XRNode.LeftHand);
+            MapPositionByGameObject(_Head, PlayerHandler.instance.Head);
+            MapPositionByGameObject(_RightHand, PlayerHandler.instance.RightHand);
+            MapPositionByGameObject(_LeftHand, PlayerHandler.instance.LeftHand);
+
+            // MapPosition(_Head, XRNode.Head);
+            // MapPosition(_RightHand, XRNode.RightHand);
+            // MapPosition(_LeftHand, XRNode.LeftHand);
 
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), _RightAnimator);
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), _LeftAnimator);
 
             if (_myOrigin == null) return;
-            transform.position = _myOrigin.transform.position;
-            transform.rotation = _myOrigin.transform.rotation;
+            transform.position = _myOrigin.transform.localPosition;
+            transform.rotation = _myOrigin.transform.localRotation;
         }
     }
+
+    private void MapPositionByGameObject(Transform target, GameObject device)
+    {
+        if (device == null)
+            return;
+
+        target.transform.localPosition = device.transform.localPosition;
+        target.transform.localRotation = device.transform.localRotation;
+    }
+
     private void MapPosition(Transform target, XRNode node)
     {
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);

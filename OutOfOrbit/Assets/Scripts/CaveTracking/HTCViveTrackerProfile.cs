@@ -12,7 +12,7 @@ using System;
 using UnityEditor;
 #endif
  
-using PoseControl = UnityEngine.XR.OpenXR.Input.PoseControl;
+using PoseControl = UnityEngine.InputSystem.XR.PoseControl;
  
 namespace UnityEngine.XR.OpenXR.Features.Interactions
 {
@@ -203,7 +203,7 @@ namespace UnityEngine.XR.OpenXR.Features.Interactions
                 else if ((deviceDescriptor.characteristics & (InputDeviceCharacteristics)InputDeviceTrackerCharacteristics.TrackerKeyboard) != 0)
                     InputSystem.InputSystem.SetDeviceUsage(this, "Keyboard");
                 
-                Debug.Log("Device added");
+                Debug.Log($"Device added. (Vive Tracker)");
             }
         }
  
