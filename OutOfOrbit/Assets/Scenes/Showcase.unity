@@ -10295,6 +10295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1465120763393475947, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 2437186871655249720, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
       propertyPath: near clip plane
       value: 0.04400015
@@ -10817,7 +10821,7 @@ MonoBehaviour:
   centralBody: {fileID: 211315981}
   width: 0.1
   useThickLines: 1
-  showLinesDuringPlayMode: 0
+  showLinesDuringPlayMode: 1
 --- !u!1001 &1026983909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10893,7 +10897,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 0945ef779bb185c4f88f365c246f4717, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: e305453a48fa58446882f6671dfa0d58, type: 2}
+      objectReference: {fileID: 2100000, guid: 7c0e0e56aed3a0b499e84cb7f11b97fa, type: 2}
     - target: {fileID: 919132149155446097, guid: 0945ef779bb185c4f88f365c246f4717, type: 3}
       propertyPath: m_Name
       value: MechTestNonUV
@@ -11334,6 +11338,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5867029805246212973, guid: 81ee60cb18ca15d4b927715700743cfc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867029805246212973, guid: 81ee60cb18ca15d4b927715700743cfc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867029805246212973, guid: 81ee60cb18ca15d4b927715700743cfc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5867029805246220991, guid: 81ee60cb18ca15d4b927715700743cfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 406.83023
@@ -11612,7 +11628,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457646875}
-  m_LocalRotation: {x: -0, y: 0.994742, z: -0, w: 0.102413595}
+  m_LocalRotation: {x: 0, y: 0.6973527, z: -0, w: -0.7167282}
   m_LocalPosition: {x: 2.643, y: -3.7369998, z: 1.9761963}
   m_LocalScale: {x: 0.30173, y: 0.30173, z: 0.30173}
   m_ConstrainProportionsScale: 0
@@ -11621,7 +11637,7 @@ Transform:
   - {fileID: 221361549}
   m_Father: {fileID: 0}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 168.244, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 271.57, z: 0}
 --- !u!1 &1524134388
 GameObject:
   m_ObjectHideFlags: 0
