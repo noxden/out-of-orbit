@@ -31,9 +31,9 @@ public class NetworkPlayer : MonoBehaviour
         {
             if (XRPlayer.current)
             {
-                MapPositionTrackedXRDevice(_Head, XRPlayer.current.head);
-                MapPositionTrackedXRDevice(_RightHand, XRPlayer.current.rightHand);
-                MapPositionTrackedXRDevice(_LeftHand, XRPlayer.current.leftHand);
+                MapPositionByTrackedXRDevice(_Head, XRPlayer.current.head);
+                MapPositionByTrackedXRDevice(_RightHand, XRPlayer.current.rightHand);
+                MapPositionByTrackedXRDevice(_LeftHand, XRPlayer.current.leftHand);
 
                 transform.position = XRPlayer.current.transform.localPosition;
                 transform.rotation = XRPlayer.current.transform.localRotation;
@@ -44,30 +44,13 @@ public class NetworkPlayer : MonoBehaviour
         }
     }
 
-    private void MapPositionTrackedXRDevice(Transform target, TrackedXRDevice device)
+    private void MapPositionByTrackedXRDevice(Transform target, TrackedXRDevice device)
     {
         if (device == null)
             return;
 
         target.transform.localPosition = device.position;
         target.transform.localRotation = device.rotation;
-    }
-
-    private void MapPositionByGameObject(Transform target, GameObject device)
-    {
-        if (device == null)
-            return;
-
-        target.transform.localPosition = device.transform.localPosition;
-        target.transform.localRotation = device.transform.localRotation;
-    }
-
-    private void MapPosition(Transform target, XRNode node)
-    {
-        InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);
-        InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion rotation);
-        target.transform.localPosition = position;
-        target.transform.localRotation = rotation;
     }
 
     private void UpdateHandAnimation(InputDevice targetDevice, Animator handAnimator)

@@ -28,7 +28,7 @@ public abstract class XRPlayer : MonoBehaviour
                 default: Debug.LogError($"XR device \"{device}\" is neither Head nor LeftHand or RightHand."); break;
             }
         }
-        Debug.Log($"[XRPlayer] [{this.name}] Identified {head} as head, {leftHand} as left hand and {rightHand} as right hand.");
+        // Debug.Log($"[XRPlayer] [{this.name}] Identified {head} as head, {leftHand} as left hand and {rightHand} as right hand.");
     }
 
     //# Private Methods 
