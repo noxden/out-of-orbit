@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Head
+  - LeftHand
+  - RightHand
+  - HMDPlayer
+  - CAVEPlayer
   layers:
   - Default
   - TransparentFX
