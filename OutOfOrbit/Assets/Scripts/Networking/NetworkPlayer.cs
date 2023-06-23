@@ -9,7 +9,6 @@ public class NetworkPlayer : MonoBehaviour
     [SerializeField] private Animator _RightAnimator;
     [SerializeField] private Transform _LeftHand;
     [SerializeField] private Animator _LeftAnimator;
-    private XROrigin _myOrigin;
     private PhotonView _PhotonView;
     private void Start()
     {
@@ -22,8 +21,6 @@ public class NetworkPlayer : MonoBehaviour
                 foreach (var renderer in GetComponentsInChildren<Renderer>())
                     renderer.enabled = false;
             }
-            _myOrigin = FindObjectOfType<XROrigin>();
-            if (_myOrigin == null) Debug.LogWarning($"XROrigin could not be found in scene.");
         }
         else
             name = $"NetworkPlayer (Client {_PhotonView.CreatorActorNr})";
@@ -32,21 +29,28 @@ public class NetworkPlayer : MonoBehaviour
     {
         if (_PhotonView.IsMine)
         {
-            MapPositionByGameObject(_Head, PlayerHandler.instance.Head);
-            MapPositionByGameObject(_RightHand, PlayerHandler.instance.RightHand);
-            MapPositionByGameObject(_LeftHand, PlayerHandler.instance.LeftHand);
+            if (XRPlayer.current)
+            {
+                MapPositionTrackedXRDevice(_Head, XRPlayer.current.head);
+                MapPositionTrackedXRDevice(_RightHand, XRPlayer.current.rightHand);
+                MapPositionTrackedXRDevice(_LeftHand, XRPlayer.current.leftHand);
 
-            // MapPosition(_Head, XRNode.Head);
-            // MapPosition(_RightHand, XRNode.RightHand);
-            // MapPosition(_LeftHand, XRNode.LeftHand);
+                transform.position = XRPlayer.current.transform.localPosition;
+                transform.rotation = XRPlayer.current.transform.localRotation;
+            }
 
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), _RightAnimator);
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), _LeftAnimator);
-
-            if (_myOrigin == null) return;
-            transform.position = _myOrigin.transform.localPosition;
-            transform.rotation = _myOrigin.transform.localRotation;
         }
+    }
+
+    private void MapPositionTrackedXRDevice(Transform target, TrackedXRDevice device)
+    {
+        if (device == null)
+            return;
+
+        target.transform.localPosition = device.position;
+        target.transform.localRotation = device.rotation;
     }
 
     private void MapPositionByGameObject(Transform target, GameObject device)

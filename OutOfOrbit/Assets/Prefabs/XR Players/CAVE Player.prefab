@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 735805690794932064}
+  - component: {fileID: 308779179969724296}
   - component: {fileID: 6486915848273815981}
   - component: {fileID: 3958705841922616148}
   - component: {fileID: 5194896375172412687}
   - component: {fileID: 1000162176818942114}
   m_Layer: 0
   m_Name: RightHand Controller
-  m_TagString: RightHand
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +37,19 @@ Transform:
   m_Father: {fileID: 8504795342640177830}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &308779179969724296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529545735312435074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0789abd99186ba843ae3468dcc581368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 3
 --- !u!114 &6486915848273815981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,12 +975,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6535171225413673213}
+  - component: {fileID: 8052805173308611708}
   - component: {fileID: 6786470592487987862}
   - component: {fileID: 3120867678607502126}
   - component: {fileID: 3102840289510594357}
   m_Layer: 0
-  m_Name: CAVE Player (XR Origin)
-  m_TagString: CAVEPlayer
+  m_Name: CAVE Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -989,6 +1004,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8052805173308611708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921552526975987553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435cf5d29a3560d47bda7f1ad43c21a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6786470592487987862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,13 +1584,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7934158800261878765}
+  - component: {fileID: 2835595415052328077}
   - component: {fileID: 3132965988673454617}
   - component: {fileID: 50594707791379742}
   - component: {fileID: 2184540469980729826}
   - component: {fileID: 3132402963046304794}
   m_Layer: 0
   m_Name: LeftHand Controller
-  m_TagString: LeftHand
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1584,6 +1612,19 @@ Transform:
   m_Father: {fileID: 8504795342640177830}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2835595415052328077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397010027501529651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0789abd99186ba843ae3468dcc581368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 2
 --- !u!114 &3132965988673454617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2375,10 +2416,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2764979239915125870}
+  - component: {fileID: 6242340056315767914}
   - component: {fileID: 7192931783946120997}
   m_Layer: 0
   m_Name: Head Tracker
-  m_TagString: Head
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2399,6 +2441,19 @@ Transform:
   m_Father: {fileID: 8504795342640177830}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6242340056315767914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7787051102100421077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0789abd99186ba843ae3468dcc581368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
 --- !u!114 &7192931783946120997
 MonoBehaviour:
   m_ObjectHideFlags: 0
