@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832b4fffd50b93a49b3771893483439d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GizmoMode: 0
   cubeAmount: 5000
   rangeMin: 2
   rangeMax: 1000
