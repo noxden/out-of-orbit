@@ -155,9 +155,9 @@ MonoBehaviour:
   mech: {fileID: 1284361892}
   rotateInput: {fileID: -1534571792233372199, guid: a844e9ae88ddd8c408b93f90668799ad, type: 3}
   thrustInput: {fileID: 5090213057515970326, guid: a844e9ae88ddd8c408b93f90668799ad, type: 3}
-  movementAcceleration: 50
-  maxVelocity: 100
-  rotationSpeed: 15
+  movementAcceleration: 70
+  maxVelocity: 210
+  rotationSpeed: 25
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
   rotateValue: {x: 0, y: 0}
