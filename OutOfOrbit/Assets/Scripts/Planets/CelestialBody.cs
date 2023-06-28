@@ -44,6 +44,8 @@ public class CelestialBody : GravityObject
 
     void Awake()
     {
+        AssignValuesAutomatically();
+
         rb = GetComponent<Rigidbody>();
         rb.mass = mass;
         rb.useGravity = false;
@@ -75,7 +77,7 @@ public class CelestialBody : GravityObject
         rb.MovePosition(rb.position + velocity * timeStep);
     }
 
-    void OnValidate()   //< Is called every time any exposed field is modified in the editor
+    private void AssignValuesAutomatically()
     {
         mass = surfaceGravity * radius * radius / Universe.gravitationalConstant;
         meshHolder = GetComponentInChildren<MeshRenderer>().transform;
@@ -83,6 +85,11 @@ public class CelestialBody : GravityObject
         meshHolder.localScale = Vector3.one * radius;
         if (bodyName != null)
             gameObject.name = bodyName;
+    }
+
+    void OnValidate()   //< Is called every time any exposed field is modified in the editor
+    {
+        AssignValuesAutomatically();
     }
 
 
