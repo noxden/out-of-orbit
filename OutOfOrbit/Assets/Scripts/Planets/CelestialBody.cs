@@ -81,7 +81,6 @@ public class CelestialBody : GravityObject
     {
         mass = surfaceGravity * radius * radius / Universe.gravitationalConstant;
         meshHolder = GetComponentInChildren<MeshRenderer>().transform;
-        // meshHolder = transform.GetChild(0);
         meshHolder.localScale = Vector3.one * radius;
         if (bodyName != null)
             gameObject.name = bodyName;

@@ -32,16 +32,9 @@ public class NBodySimulation : MonoBehaviour
     {
         for (int i = 0; i < _bodies.Length; i++)
         {
-            // Vector3 acceleration = CalculateAcceleration(_bodies[i].Position, _bodies[i]);
-            // _bodies[i].UpdateVelocity(acceleration, Universe.physicsTimeStep);
             _bodies[i].UpdateVelocity(_bodies, Universe.physicsTimeStep);
-        }
-
-        for (int i = 0; i < _bodies.Length; i++)
-        {
             _bodies[i].UpdatePosition(Universe.physicsTimeStep);
         }
-
     }
 
     public static Vector3 CalculateAcceleration(Vector3 point, CelestialBody ignoreBody = null)
