@@ -48,7 +48,7 @@ public class MechMovementController : MonoBehaviour
         mech.maxLinearVelocity = maxVelocity;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Debug.Log($"Rotation value: {rotate.ReadValue<Vector2>()}");
         // Debug.Log($"Thrust value:   {thrust.ReadValue<float>()}");
