@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2921552526975987553, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
       propertyPath: m_Name
-      value: CAVE Player (XR Origin)
+      value: CAVE Player
       objectReference: {fileID: 0}
     - target: {fileID: 4930732585555567401, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
       propertyPath: near clip plane
@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8306744004087069619, guid: b8cbc9ad2d0ec2c45b9ade4228c7b8a6, type: 3}
       propertyPath: m_Name
-      value: HMD Player (XR Origin)
+      value: HMD Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

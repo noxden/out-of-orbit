@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3790550020219800497}
+  - component: {fileID: 6234462670739730070}
   - component: {fileID: 3447971642517609966}
   - component: {fileID: 8244623766460075206}
   - component: {fileID: 6500009933282340134}
   m_Layer: 0
   m_Name: RightHand Controller
-  m_TagString: RightHand
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,6 +36,19 @@ Transform:
   m_Father: {fileID: 8399499994823258577}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6234462670739730070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133218462301692232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0789abd99186ba843ae3468dcc581368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 3
 --- !u!114 &3447971642517609966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,12 +375,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1596620721580674632}
+  - component: {fileID: 7410960395077692510}
   - component: {fileID: 6254920034992931857}
   - component: {fileID: 4219950749738529571}
   - component: {fileID: 1909299687548627089}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Head
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,6 +401,19 @@ Transform:
   m_Father: {fileID: 8399499994823258577}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7410960395077692510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7161937888373433747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0789abd99186ba843ae3468dcc581368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
 --- !u!20 &6254920034992931857
 Camera:
   m_ObjectHideFlags: 0
@@ -540,13 +568,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 754159635372869236}
+  - component: {fileID: 4711709744276637772}
   - component: {fileID: 6138501666639438032}
   - component: {fileID: 3201311368731960060}
   - component: {fileID: 7062746501829185802}
   - component: {fileID: 8323553260389013520}
   m_Layer: 0
   m_Name: LeftHand Controller
-  m_TagString: LeftHand
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -567,6 +596,19 @@ Transform:
   m_Father: {fileID: 8399499994823258577}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4711709744276637772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7746906223864083292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0789abd99186ba843ae3468dcc581368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 2
 --- !u!114 &6138501666639438032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,11 +1151,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4101714445170807145}
+  - component: {fileID: 5007483589599649474}
   - component: {fileID: 7812993008513272893}
   - component: {fileID: 5502857709482402545}
   m_Layer: 0
-  m_Name: HMD Player (XR Origin)
-  m_TagString: HMDPlayer
+  m_Name: HMD Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1134,6 +1177,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5007483589599649474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306744004087069619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a966bd28f56e9d4baddce7ea74d18a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7812993008513272893
 MonoBehaviour:
   m_ObjectHideFlags: 0
