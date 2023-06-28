@@ -74,7 +74,8 @@ public class CelestialBody : GravityObject
 
     public void UpdatePosition(float timeStep)
     {
-        rb.MovePosition(rb.position + velocity * timeStep);
+        rb.velocity = velocity;
+        // rb.MovePosition(rb.position + velocity * timeStep);
     }
 
     private void AssignValuesAutomatically()
