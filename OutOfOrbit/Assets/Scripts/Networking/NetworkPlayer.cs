@@ -31,9 +31,9 @@ public class NetworkPlayer : MonoBehaviour
         {
             if (XRPlayer.current)
             {
-                MapPositionByTrackedXRDevice(_Head, XRPlayer.current.head);
-                MapPositionByTrackedXRDevice(_RightHand, XRPlayer.current.rightHand);
-                MapPositionByTrackedXRDevice(_LeftHand, XRPlayer.current.leftHand);
+                MapPositionByPose(_Head, XRPlayer.current.GetDevicePose(XRDeviceType.Head));
+                MapPositionByPose(_RightHand, XRPlayer.current.GetDevicePose(XRDeviceType.RightHand));
+                MapPositionByPose(_LeftHand, XRPlayer.current.GetDevicePose(XRDeviceType.LeftHand));
 
                 transform.position = XRPlayer.current.transform.localPosition;
                 transform.rotation = XRPlayer.current.transform.localRotation;
@@ -44,13 +44,10 @@ public class NetworkPlayer : MonoBehaviour
         }
     }
 
-    private void MapPositionByTrackedXRDevice(Transform target, TrackedXRDevice device)
+    private void MapPositionByPose(Transform target, Pose pose)
     {
-        if (device == null)
-            return;
-
-        target.transform.localPosition = device.position;
-        target.transform.localRotation = device.rotation;
+        target.transform.localPosition = pose.position;
+        target.transform.localRotation = pose.rotation;
     }
 
     private void UpdateHandAnimation(InputDevice targetDevice, Animator handAnimator)

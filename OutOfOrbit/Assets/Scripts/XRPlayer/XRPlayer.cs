@@ -79,4 +79,15 @@ public abstract class XRPlayer : MonoBehaviour
             return true;
         }
     }
+
+    public virtual Pose GetDevicePose(XRDeviceType deviceType)
+    {
+        switch (deviceType)
+            {
+                case XRDeviceType.Head: return head.pose;
+                case XRDeviceType.LeftHand: return leftHand.pose;
+                case XRDeviceType.RightHand: return rightHand.pose;
+                default: return Pose.identity;
+            }
+    }
 }
