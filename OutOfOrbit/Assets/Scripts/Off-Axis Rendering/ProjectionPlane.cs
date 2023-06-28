@@ -88,6 +88,7 @@ namespace Apt.Unity.Projection
             GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
             quad.transform.parent = alignmentCube.transform;
             quad.GetComponent<Renderer>().material = AlignmentMaterial;
+            Destroy(quad.GetComponent<Collider>());
             return quad;
         }
 
