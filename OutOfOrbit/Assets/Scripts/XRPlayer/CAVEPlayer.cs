@@ -5,14 +5,38 @@ using UnityEngine;
 public class CAVEPlayer : XRPlayer
 {
     public override PlayerType type { get => PlayerType.CAVE; }
+    private Vector3 viveTrackerRotationCorrectionVector = new Vector3(90, 0, 0);
+    private Transform helperTransform;
 
-
-    private void LateUpdate()
+    protected override void Start()
     {
-        if (head != null)    // This does not account for the Tracked Pose Driver not sending any tracking data, causing the head to spin rapidly whenever that happens.
+        base.Start();
+        helperTransform = new GameObject().transform;
+        helperTransform.SetParent(this.transform, worldPositionStays: false);
+        helperTransform.name = "NetworkPlayer Head Rotation Helper";
+    }
+
+    public override Pose GetDevicePose(XRDeviceType deviceType)
+    {
+        switch (deviceType)
         {
-            Vector3 correctionVector = new Vector3(90, 0, 0);
-            head.transform.Rotate(correctionVector, Space.Self);
+            case XRDeviceType.Head:
+                {
+                    bool isTracked = !(head.pose.position == Vector3.zero && head.pose.rotation == Quaternion.identity);
+                    Debug.Log($"Head is {(isTracked ? "" : "not")} tracked.");
+
+                    if (isTracked)
+                    {
+                        helperTransform.localPosition = head.transform.localPosition;
+                        helperTransform.localRotation = head.transform.localRotation;
+                        helperTransform.Rotate(viveTrackerRotationCorrectionVector, Space.Self);
+                        return new Pose(helperTransform.localPosition, helperTransform.localRotation);
+                    }
+                    return head.pose;
+                }
+            case XRDeviceType.LeftHand: return leftHand.pose;
+            case XRDeviceType.RightHand: return rightHand.pose;
+            default: return Pose.identity;
         }
     }
 }
