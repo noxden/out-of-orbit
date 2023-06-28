@@ -35,8 +35,8 @@ public class NetworkPlayer : MonoBehaviour
                 MapPositionByPose(_RightHand, XRPlayer.current.GetDevicePose(XRDeviceType.RightHand));
                 MapPositionByPose(_LeftHand, XRPlayer.current.GetDevicePose(XRDeviceType.LeftHand));
 
-                transform.position = XRPlayer.current.transform.localPosition;
-                transform.rotation = XRPlayer.current.transform.localRotation;
+                transform.position = XRPlayer.current.transform.position;
+                transform.rotation = XRPlayer.current.transform.rotation;
             }
 
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), _RightAnimator);
