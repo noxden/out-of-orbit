@@ -987,7 +987,7 @@ Transform:
   - {fileID: 2040747468133028607}
   - {fileID: 860991459714841735}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6786470592487987862
 MonoBehaviour:
@@ -1042,7 +1042,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 860991459714841735}
-  - component: {fileID: 1397748389912487380}
+  - component: {fileID: 4814245098917525675}
   - component: {fileID: 4396867332277151762}
   - component: {fileID: 6281681725962624217}
   m_Layer: 0
@@ -1075,7 +1075,7 @@ Transform:
   m_Father: {fileID: 6535171225413673213}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1397748389912487380
+--- !u!114 &4814245098917525675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1084,11 +1084,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3065514689228713586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 849432cd2faae854887336e3f9a612e8, type: 3}
+  m_Script: {fileID: 11500000, guid: a3e555b16ffb08e4fa7b686b9fd772a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bounds: 3
-  isAutoMoving: 0
 --- !u!81 &4396867332277151762
 AudioListener:
   m_ObjectHideFlags: 0
