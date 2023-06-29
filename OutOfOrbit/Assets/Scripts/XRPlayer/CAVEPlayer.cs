@@ -23,7 +23,7 @@ public class CAVEPlayer : XRPlayer
             case XRDeviceType.Head:
                 {
                     bool isTracked = !(head.pose.position == Vector3.zero && head.pose.rotation == Quaternion.identity);
-                    Debug.Log($"Head is {(isTracked ? "" : "not")} tracked.");
+                    // Debug.Log($"Head is {(isTracked ? "" : "not")} tracked.");
 
                     if (isTracked)
                     {
