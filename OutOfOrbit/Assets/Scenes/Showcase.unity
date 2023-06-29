@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExampleCube (XR Grab Interactable Network)
       objectReference: {fileID: 0}
+    - target: {fileID: 1188004726872556703, guid: 4d95fb89abc10cb4197e4d0e32f6e056, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4337375153487172471, guid: 4d95fb89abc10cb4197e4d0e32f6e056, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -20609,7 +20613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &983624075
 Transform:
   m_ObjectHideFlags: 0
@@ -20909,7 +20913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8813979097837656383, guid: bc817c4df40b98749a0b4864844bfd25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.49
+      value: 10.81
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21312,7 +21316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535171225413673213, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.539
+      value: 0.184
       objectReference: {fileID: 0}
     - target: {fileID: 6535171225413673213, guid: 9dadb8e7d9c97904a8b5afcaccadb9ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31279,6 +31283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExampleCube2 (XR Grab Interactable Network)
       objectReference: {fileID: 0}
+    - target: {fileID: 1188004726872556703, guid: 4d95fb89abc10cb4197e4d0e32f6e056, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4337375153487172471, guid: 4d95fb89abc10cb4197e4d0e32f6e056, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -31459,8 +31467,8 @@ Transform:
   m_GameObject: {fileID: 1908682153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 2, y: 2, z: 0.76}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 553502899}
   m_RootOrder: -1
