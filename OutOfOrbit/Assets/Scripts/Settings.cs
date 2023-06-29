@@ -5,8 +5,8 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     //# Debug Flags 
-    public static bool showOwnedNetworkPlayer = true;
-    private static PlayerType? m_defaultXRPlayer = PlayerType.CAVE;   //< Set this value manually in this script to overwrite automatic player type selection.
+    public static bool showOwnedNetworkPlayer = false;
+    private static PlayerType? m_defaultXRPlayer;   //< Set this value manually in this script to overwrite automatic player type selection.
     public static PlayerType defaultXRPlayer
     {
         set
