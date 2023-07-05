@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9173326438081365777}
+  - component: {fileID: 837558639508588078}
+  - component: {fileID: 3432930934592426512}
   - component: {fileID: 3421293534638437038}
   - component: {fileID: 1785133924643080386}
-  - component: {fileID: 837558639508588078}
   - component: {fileID: 4282400471468743690}
   - component: {fileID: 1826217400475035493}
   - component: {fileID: 7324342792592241438}
@@ -36,8 +37,41 @@ Transform:
   m_Children:
   - {fileID: 3871323007568478458}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &837558639508588078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955530021858231066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b43396c785997d4ea039cbc3f036f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  bodyName: Planet
+  meshHolder: {fileID: 3871323007568478458}
+  radius: 0.3
+  surfaceGravity: 1
+  initialVelocity: {x: 0, y: 0, z: 0}
+--- !u!114 &3432930934592426512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955530021858231066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7063e8de374f5c647960e864354c282d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockedInCorrectOrbit: 0
+  requiredConsecutiveTimeInCorrectOrbit: 0
+  m_consecutiveTimeInCorrectOrbit: 0
 --- !u!54 &3421293534638437038
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,24 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
---- !u!114 &837558639508588078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955530021858231066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b43396c785997d4ea039cbc3f036f54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  bodyName: Planet
-  meshHolder: {fileID: 3871323007568478458}
-  radius: 0.3
-  surfaceGravity: 1
-  initialVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4282400471468743690
 MonoBehaviour:
   m_ObjectHideFlags: 0
