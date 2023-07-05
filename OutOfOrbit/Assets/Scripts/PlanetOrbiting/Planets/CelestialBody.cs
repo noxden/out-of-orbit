@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CelestialBodyType { Planet, Star, Moon, Collected }
+public enum CelestialBodyType { Planet, Star, Moon }
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(Rigidbody))]
@@ -15,8 +15,8 @@ public class CelestialBody : GravityObject
 {
     //# Inspector 
     public CelestialBodyType type;
-    public string bodyName = "Unnamed";
-    Transform meshHolder;
+    public string bodyName = "Unnamed Celestial Body";
+    public Transform meshHolder;
     public float radius;
     public float surfaceGravity;
     public Vector3 initialVelocity;
@@ -81,7 +81,8 @@ public class CelestialBody : GravityObject
     private void AssignValuesAutomatically()
     {
         mass = surfaceGravity * radius * radius / Universe.gravitationalConstant;
-        meshHolder = GetComponentInChildren<MeshRenderer>().transform;
+        if (meshHolder == null)
+            meshHolder = GetComponentInChildren<MeshRenderer>().transform;
         meshHolder.localScale = Vector3.one * radius;
         if (bodyName != null)
             gameObject.name = bodyName;
