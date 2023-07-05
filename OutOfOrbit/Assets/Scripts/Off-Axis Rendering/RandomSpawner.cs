@@ -32,6 +32,7 @@ public class RandomSpawner : MonoBehaviour
             go.GetComponent<Renderer>().material.color = positionBasedColor;
             go.GetComponent<Renderer>().material.SetColor("_EmissionColor", positionBasedColor);
             go.GetComponent<Renderer>().material.SetFloat("_Glossiness", 0f);
+            DestroyImmediate(go.GetComponent<Collider>());
         }
     }
 
