@@ -137,7 +137,8 @@ public class OrbitDebugDisplay : MonoBehaviour
         for (int bodyIndex = 0; bodyIndex < bodies.Length; bodyIndex++)
         {
             var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
-            lineRenderer.positionCount = 0;
+            if (lineRenderer != null)
+                lineRenderer.positionCount = 0;
         }
     }
 
