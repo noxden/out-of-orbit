@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OutOfOrbitPlanet : MonoBehaviour
 {
-    [SerializeField] private bool lockedInCorrectOrbit = false;
+    public bool lockedInCorrectOrbit = false;
     [SerializeField] private float requiredConsecutiveTimeInCorrectOrbit = 0f;
     public float consecutiveTimeInCorrectOrbit
     {
@@ -25,11 +25,12 @@ public class OutOfOrbitPlanet : MonoBehaviour
     {
         if (lockedInCorrectOrbit)
             return;
-            
+
         if (consecutiveTimeInCorrectOrbit > requiredConsecutiveTimeInCorrectOrbit)
         {
             Debug.Log($"Locked {this.name} into correct orbit. Good job!");
             lockedInCorrectOrbit = true;
+            consecutiveTimeInCorrectOrbit = 0;
         }
     }
 }
