@@ -37,15 +37,22 @@ public class CorrectOrbitChecker : MonoBehaviour
 
         foreach (OutOfOrbitPlanet planet in collidingPlanets)
         {
-            if (planet.lockedInCorrectOrbit)
-                continue;
+            // if (planet.lockedInCorrectOrbit)
+            //     continue;
 
             float distanceOfPlanetToOrbitCenter = Vector3.Distance(transform.position, planet.transform.position);
             if (isWithinRange(value: distanceOfPlanetToOrbitCenter, rangeMin: orbitRadiusInside, rangeMax: orbitRadiusOutside))
             {
-                areaVisualizationRenderer.material.color = new Color(0f, 1f, 0f, 0f);
-                planet.consecutiveTimeInCorrectOrbit += Time.deltaTime;
-                // Debug.Log($"Added {Time.deltaTime} to {planet.name}'s consecutiveTimeInCorrectOrbit.");
+                if (planet.lockedInCorrectOrbit)
+                {
+                    areaVisualizationRenderer.material.color = new Color(0f, 0f, 1f, 0f);
+                }
+                else
+                {
+                    areaVisualizationRenderer.material.color = new Color(0f, 1f, 0f, 0f);
+                    planet.consecutiveTimeInCorrectOrbit += Time.deltaTime;
+                    // Debug.Log($"Added {Time.deltaTime} to {planet.name}'s consecutiveTimeInCorrectOrbit.");
+                }
             }
             else
             {
@@ -60,8 +67,8 @@ public class CorrectOrbitChecker : MonoBehaviour
         // Debug.Log($"{other.name} has entered the orbit checker.");
         OutOfOrbitPlanet planet = other.GetComponentInParent<OutOfOrbitPlanet>();
         if (planet != null)
-            if (!planet.lockedInCorrectOrbit)
-                collidingPlanets.Add(planet);
+            // if (!planet.lockedInCorrectOrbit)
+            collidingPlanets.Add(planet);
     }
 
     private void OnTriggerExit(Collider other)
