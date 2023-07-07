@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1437965663}
-  m_IndirectSpecularColor: {r: 0.00035691136, g: 0.0006919083, b: 0.0016412722, a: 1}
+  m_IndirectSpecularColor: {r: 0.00035691136, g: 0.0006919248, b: 0.0016412722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   bodyName: Central Star
+  meshHolder: {fileID: 1237997741}
   radius: 10
   surfaceGravity: 50
   initialVelocity: {x: 0, y: 0, z: 0}
@@ -496,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   bodyName: NSL Planet Moon 1
+  meshHolder: {fileID: 1066055368}
   radius: 0.3
   surfaceGravity: 0.0001
   initialVelocity: {x: 0, y: 0, z: 12.6}
@@ -631,6 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   bodyName: Second Planet
+  meshHolder: {fileID: 1078892677}
   radius: 2
   surfaceGravity: 9.81
   initialVelocity: {x: 0, y: 0, z: 5.1}
@@ -10169,6 +10172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   bodyName: NSL Planet Moon 2
+  meshHolder: {fileID: 1625971497}
   radius: 0.3
   surfaceGravity: 0.001
   initialVelocity: {x: 0, y: 0, z: 12.2}
@@ -10357,6 +10361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   bodyName: Not So Lonely Planet
+  meshHolder: {fileID: 1942442027}
   radius: 1
   surfaceGravity: 9.81
   initialVelocity: {x: 0, y: 0, z: 9.77}
@@ -20464,6 +20469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   bodyName: Third Planet
+  meshHolder: {fileID: 345633157}
   radius: 0.5
   surfaceGravity: 3
   initialVelocity: {x: 0, y: 0, z: 21.25}
@@ -20968,7 +20974,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7390614652462619957
+--- !u!1001 &7838841020655994716
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -20976,59 +20982,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2377851410648200094, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
-      propertyPath: m_Name
-      value: Mech
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4300107885008713411, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 2602222417220610973, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6173362499933636505, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 4561633588489629376, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_Name
-      value: Projector
+      value: Mech
       objectReference: {fileID: 0}
-    - target: {fileID: 9155840348241802153, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+    - target: {fileID: 6963104469795401463, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
@@ -21036,4 +21038,4 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 65085faa308dcbd4fb2732261b900f2b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
