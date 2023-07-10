@@ -50,32 +50,29 @@ public class MechMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Debug.Log($"Rotation value: {rotate.ReadValue<Vector2>()}");
-        // Debug.Log($"Thrust value:   {thrust.ReadValue<float>()}");
-        rotateValue = rotate.ReadValue<Vector2>();
-        thrustValue = thrust.ReadValue<float>();
-
         if (mech == null)
             return;
 
-        Move();
-        Rotate();
+        if (rotate.inProgress)
+        {
+            rotateValue = rotate.ReadValue<Vector2>();
+            Rotate();
+        }
+        if (thrust.inProgress)
+        {
+            thrustValue = thrust.ReadValue<float>();
+            Move();
+        }
 
+        //> For visualization purposes
         velocity = mech.velocity;
         angularVelocity = mech.angularVelocity;
 
-        if (mech.position.magnitude > 900) MoveBackToCenter();     //! FOR DEBUGGING PURPOSES ONLY
+        if (mech.position.magnitude > 900) mech.transform.position = Vector3.zero;  //< If too far away, move back to center   //! FOR DEBUGGING PURPOSES ONLY
     }
 
     private void Move()
     {
-        //> MoveTowards Approach
-        // mech.position = Vector3.MoveTowards(mech.position, mech.position + mech.forward * thrustValue, maxSpeed);
-
-        //> Position Approach
-        // float thrustPower = Mathf.Min(thrustValue * Time.deltaTime, maxSpeed);
-        // mech.position += mech.forward * thrustPower;
-
         //> Rigidbody-based Approach
         mech.AddForce(mech.transform.forward * thrustValue * movementAcceleration, ForceMode.Acceleration);
     }
@@ -84,18 +81,10 @@ public class MechMovementController : MonoBehaviour
     {
         Vector3 rotatePower = new Vector3(rotateValue.y, rotateValue.x, 0);
         mech.AddRelativeTorque(rotatePower * rotationSpeed);
-
-        // mech.transform.RotateAround(mech.transform.position, rotatePower, rotationSpeed);
-        // mech.transform.Rotate(rotatePower, Space.Self);
     }
 
     private void OnValidate()
     {
         mech.maxLinearVelocity = maxVelocity;
-    }
-
-    private void MoveBackToCenter()     //! FOR DEBUGGING PURPOSES ONLY
-    {
-        mech.transform.position = Vector3.zero;
     }
 }
