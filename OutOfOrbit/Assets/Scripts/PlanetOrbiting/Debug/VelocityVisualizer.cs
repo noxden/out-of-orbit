@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class RigidBodyStats : MonoBehaviour
+public class VelocityVisualizer : MonoBehaviour
 {
     [SerializeField] private Vector3 velocity;
     [SerializeField] private Vector3 angularVelocity;
