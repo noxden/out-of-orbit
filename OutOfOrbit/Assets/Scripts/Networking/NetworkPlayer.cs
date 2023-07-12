@@ -6,9 +6,9 @@ public class NetworkPlayer : MonoBehaviour
 {
     [SerializeField] private Transform _Head;
     [SerializeField] private Transform _RightHand;
-    [SerializeField] private Animator _RightAnimator;
+    [SerializeField] private PawAnimator _RightAnimator;
     [SerializeField] private Transform _LeftHand;
-    [SerializeField] private Animator _LeftAnimator;
+    [SerializeField] private PawAnimator _LeftAnimator;
     private PhotonView _PhotonView;
     private void Start()
     {
@@ -29,7 +29,7 @@ public class NetworkPlayer : MonoBehaviour
     {
         if (_PhotonView.IsMine)
         {
-            if (XRPlayer.current)
+            if (XRPlayer.current != null)
             {
                 MapPositionByPose(_Head, XRPlayer.current.GetDevicePose(XRDeviceType.Head));
                 MapPositionByPose(_RightHand, XRPlayer.current.GetDevicePose(XRDeviceType.RightHand));
@@ -50,15 +50,11 @@ public class NetworkPlayer : MonoBehaviour
         target.transform.localRotation = pose.rotation;
     }
 
-    private void UpdateHandAnimation(InputDevice targetDevice, Animator handAnimator)
+    private void UpdateHandAnimation(InputDevice targetDevice, PawAnimator handAnimator)
     {
-        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
-            handAnimator.SetFloat("Trigger", triggerValue);
-        else
-            handAnimator.SetFloat("Trigger", 0);
         if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
-            handAnimator.SetFloat("Grip", gripValue);
+            handAnimator.SetPawClasp(gripValue);
         else
-            handAnimator.SetFloat("Grip", 0);
+            handAnimator.SetPawClasp(0);
     }
 }
