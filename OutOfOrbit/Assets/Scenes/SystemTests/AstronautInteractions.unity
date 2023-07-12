@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022817320}
-  m_LocalRotation: {x: -0.08696797, y: -0.430699, z: -0.055404853, w: 0.89658535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.145, y: 0.85, z: -2.196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1103,7 +1103,7 @@ Transform:
   - {fileID: 487546741}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: -11.752, y: -51.17, z: -1.43}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1022817323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1237,6 +1237,10 @@ PrefabInstance:
       value: Planet 2
       objectReference: {fileID: 0}
     - target: {fileID: 837558639508588078, guid: 645947631e7e2b744894b6b1b2726161, type: 3}
+      propertyPath: displayGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 837558639508588078, guid: 645947631e7e2b744894b6b1b2726161, type: 3}
       propertyPath: surfaceGravity
       value: 0.001
       objectReference: {fileID: 0}
@@ -1250,7 +1254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 837558639508588078, guid: 645947631e7e2b744894b6b1b2726161, type: 3}
       propertyPath: initialVelocity.z
-      value: 0.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 955530021858231066, guid: 645947631e7e2b744894b6b1b2726161, type: 3}
       propertyPath: m_Name

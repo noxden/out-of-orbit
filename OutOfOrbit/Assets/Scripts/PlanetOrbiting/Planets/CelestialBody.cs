@@ -14,6 +14,8 @@ public enum CelestialBodyType { Planet, Star, Moon }
 [RequireComponent(typeof(Rigidbody))]
 public class CelestialBody : GravityObject
 {
+    [SerializeField] private bool displayGizmos;    //! DEBUG
+    [Space(10)]
     //# Inspector 
     public CelestialBodyType type;
     public string bodyName = "Unnamed Celestial Body";
@@ -89,14 +91,16 @@ public class CelestialBody : GravityObject
             gameObject.name = bodyName;
     }
 
-    // private Vector3 CalculateOptimalOrbitVelocity()
-    // {
-    //     Vector3 gravitationalPull = CalculateAcceleration(NBodySimulation.bodies);
-    //     Vector3 rotationAxis = FindAnyObjectByType<CorrectOrbitChecker>().transform.up;
-    //     Vector3 optimalOrbitVelocity = Quaternion.AngleAxis(-50, rotationAxis) * -gravitationalPull;
+    private Vector3 CalculateOptimalOrbitVelocity()
+    {
+        Vector3 gravitationalPull = CalculateAcceleration(NBodySimulation.bodies);
+        Vector3 rotationAxis = FindAnyObjectByType<CorrectOrbitChecker>().transform.up;
+        Vector3 targetDirection = Quaternion.AngleAxis(90, rotationAxis) * gravitationalPull;
+        Vector3 escapeDirection = (targetDirection - gravitationalPull).normalized;
+        Vector3 optimalOrbitVelocity = escapeDirection * gravitationalPull.magnitude;
 
-    //     return optimalOrbitVelocity;
-    // }
+        return optimalOrbitVelocity;
+    }
 
     private void OnValidate() //< Is called every time any exposed field is modified in the editor
     {
@@ -108,9 +112,11 @@ public class CelestialBody : GravityObject
         if (!Application.isPlaying)
             return;
 
+        if (!displayGizmos)
+            return;
         // Attempted OptimalOrbitVelocity
-        // Gizmos.color = Color.red;
-        // Gizmos.DrawLine(position, position + CalculateOptimalOrbitVelocity());
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(position, position + CalculateOptimalOrbitVelocity());
 
         // Currently applied velocity -> Target for optimal?
         Gizmos.color = Color.green;
@@ -122,5 +128,11 @@ public class CelestialBody : GravityObject
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(position, position + CalculateAcceleration(NBodySimulation.bodies));
+    }
+
+    [ContextMenu("Apply optimal velocity")]
+    private void ApplyOptimalVelocity()
+    {
+        rb.AddForce(CalculateOptimalOrbitVelocity());
     }
 }
