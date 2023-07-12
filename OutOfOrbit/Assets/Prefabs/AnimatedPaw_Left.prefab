@@ -45,15 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa028f7e467f706459eb3bf9a1b61497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gripValueAction:
-    m_Name: Grip Value
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 7bf15673-8a21-4409-83b7-d480f4eb99bb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!1001 &4566518626672243271
 PrefabInstance:
   m_ObjectHideFlags: 0

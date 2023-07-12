@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,37 +6,24 @@ public class PawAnimator : MonoBehaviour
 {
     private SkinnedMeshRenderer meshRenderer;
     private InputAction gripValueAction;
+    private float gripValue => gripValueAction.ReadValue<float>();
 
-    private void OnEnable()
+    private void Awake()
     {
         UnityEngine.XR.Interaction.Toolkit.ActionBasedController controller = GetComponentInParent<UnityEngine.XR.Interaction.Toolkit.ActionBasedController>();
-        if (controller == null) //< Necessary for the NetworkPlayer's hands to not cause log errors
-            return;
-
         gripValueAction = controller.selectActionValue.action;
-        // Debug.Log($"{this.name}'s GripValueAction is now \"{gripValueAction.name}\" from \"{gripValueAction.actionMap.name}\".");
-        gripValueAction.performed += ReadGripValue;
     }
 
-    private void OnDisable()
+    private void Update()
     {
-        if (gripValueAction != null)
-            gripValueAction.performed -= ReadGripValue;
-    }
-
-    private void Start()
-    {
-        meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-    }
-
-    private void ReadGripValue(InputAction.CallbackContext args)
-    {
-        if (meshRenderer != null)
-            SetPawClasp(args.ReadValue<float>());
+        if (gripValueAction == null) //< Necessary for the NetworkPlayer's hands to not cause log errors
+            return;
+        
+        SetPawClasp(gripValue);
     }
 
     public void SetPawClasp(float value)
     {
-        meshRenderer.SetBlendShapeWeight(0, value);
+        meshRenderer.SetBlendShapeWeight(0, value * 100); //< Multiplier is necessary because I messed up the export of the blendshapes so now they range from 0 to 100.
     }
 }
