@@ -45,15 +45,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa028f7e467f706459eb3bf9a1b61497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gripValueAction:
-    m_Name: Grip Value
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 7bf15673-8a21-4409-83b7-d480f4eb99bb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+--- !u!1 &5144274235009674809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4290678135646718793}
+  - component: {fileID: 4648784165388644572}
+  m_Layer: 0
+  m_Name: MainCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4290678135646718793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144274235009674809}
+  m_LocalRotation: {x: 0.000000010244547, y: 0.10339533, z: 0.000000008614733, w: 0.9946404}
+  m_LocalPosition: {x: -0.040625133, y: -0.0000000058789738, z: 0.0053519635}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4095233322529953196}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 11.869, z: 0}
+--- !u!65 &4648784165388644572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144274235009674809}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.07425092, y: 0.13, z: 0.29}
+  m_Center: {x: 0, y: 0, z: 0.11}
 --- !u!1001 &4566518626672243271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,7 +204,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1d521b95568e3924dacd407963f72ba8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4290678135646718793}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d521b95568e3924dacd407963f72ba8, type: 3}
 --- !u!4 &4095233322529953196 stripped
