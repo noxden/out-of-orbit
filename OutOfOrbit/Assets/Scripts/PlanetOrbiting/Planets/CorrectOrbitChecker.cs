@@ -42,8 +42,7 @@ public class CorrectOrbitChecker : MonoBehaviour
             //     continue;
 
             float distanceOfPlanetToOrbitCenter = Vector3.Distance(transform.position, planet.transform.position);
-            if (isWithinRange(value: distanceOfPlanetToOrbitCenter, rangeMin: orbitRadiusInside,
-                    rangeMax: orbitRadiusOutside))
+            if (isWithinRange(value: distanceOfPlanetToOrbitCenter, rangeMin: orbitRadiusInside, rangeMax: orbitRadiusOutside))
             {
                 if (planet.lockedInCorrectOrbit)
                 {
