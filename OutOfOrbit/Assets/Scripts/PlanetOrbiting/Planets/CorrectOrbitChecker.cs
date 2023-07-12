@@ -24,7 +24,8 @@ public class CorrectOrbitChecker : MonoBehaviour
         boxCollider.isTrigger = true;
         boxCollider.size = new Vector3(orbitRadiusOutside * 2, orbitThicknessVertical, orbitRadiusOutside * 2);
 
-        areaVisualization.transform.localScale = new Vector3(orbitRadiusOutside * 2, orbitThicknessVertical * 0.5f, orbitRadiusOutside * 2);
+        areaVisualization.transform.localScale = new Vector3(orbitRadiusOutside * 2, orbitThicknessVertical * 0.5f,
+            orbitRadiusOutside * 2);
         DestroyImmediate(areaVisualization.GetComponent<Collider>());
         areaVisualization.transform.SetParent(this.transform);
         areaVisualizationRenderer = areaVisualization.GetComponent<MeshRenderer>();
@@ -41,7 +42,8 @@ public class CorrectOrbitChecker : MonoBehaviour
             //     continue;
 
             float distanceOfPlanetToOrbitCenter = Vector3.Distance(transform.position, planet.transform.position);
-            if (isWithinRange(value: distanceOfPlanetToOrbitCenter, rangeMin: orbitRadiusInside, rangeMax: orbitRadiusOutside))
+            if (isWithinRange(value: distanceOfPlanetToOrbitCenter, rangeMin: orbitRadiusInside,
+                    rangeMax: orbitRadiusOutside))
             {
                 if (planet.lockedInCorrectOrbit)
                 {
@@ -98,6 +100,7 @@ public class CorrectOrbitChecker : MonoBehaviour
                     // Debug.Log($"{planet.name} is in the correct orbit.");
                 }
             }
+
             // string isGood = $"{(distanceOfPlanetToOrbitCenter < orbitRadiusInside ? "too close" : (distanceOfPlanetToOrbitCenter > orbitRadiusOutside ? "too far away" : "perfectly in range"))}";
             // Debug.Log($"{planet.name} is {distanceOfPlanetToOrbitCenter} away from center. Needs to be between {orbitRadiusInside} and {orbitRadiusOutside}. -> Is {isGood}");
             Gizmos.DrawLine(transform.position, planet.transform.position);
@@ -109,7 +112,8 @@ public class CorrectOrbitChecker : MonoBehaviour
         if (boxCollider == null)
             boxCollider = this.gameObject.AddComponent<BoxCollider>();
         boxCollider.size = new Vector3(orbitRadiusOutside * 2, orbitThicknessVertical, orbitRadiusOutside * 2);
-        areaVisualization.transform.localScale = new Vector3(orbitRadiusOutside * 2, orbitThicknessVertical * 0.5f, orbitRadiusOutside * 2);
+        areaVisualization.transform.localScale = new Vector3(orbitRadiusOutside * 2, orbitThicknessVertical * 0.5f,
+            orbitRadiusOutside * 2);
     }
 
     private bool isWithinRange(float value, float rangeMin, float rangeMax) => (value > rangeMin && value < rangeMax);

@@ -28,10 +28,10 @@ public class PlanetRotation : MonoBehaviour
         transform.localRotation = Quaternion.Euler(rotationAxisTilt);
     }
 
-    private void OnDrawGizmos()
-    {
-        Vector3 lineLength = transform.up * transform.localScale.magnitude * 0.5f;
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position + lineLength, transform.position - lineLength);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Vector3 lineLength = transform.up * transform.localScale.magnitude * 0.5f;
+    //     Gizmos.color = Color.white;
+    //     Gizmos.DrawLine(transform.position + lineLength, transform.position - lineLength);
+    // }
 }

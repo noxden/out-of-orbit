@@ -4,6 +4,7 @@
 // Group:       #6 (Out of Orbit)
 // Script by:   Daniel Heilmann (771144)
 //================================================================
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,25 +25,21 @@ public class CelestialBody : GravityObject
     //# Non-Inspector 
     public Vector3 velocity { get; private set; }
     public float mass { get; private set; }
+
     public Rigidbody Rigidbody
     {
-        get
-        {
-            return rb;
-        }
+        get { return rb; }
     }
+
     public Vector3 position
     {
-        get
-        {
-            return rb.position;
-        }
+        get { return rb.position; }
     }
 
     //# Private Variables 
     private Rigidbody rb;
 
-    void Awake()
+    private void Awake()
     {
         AssignValuesAutomatically();
 
@@ -54,22 +51,26 @@ public class CelestialBody : GravityObject
 
     public void UpdateVelocity(CelestialBody[] allBodies, float timeStep)
     {
+        velocity += CalculateAcceleration(allBodies) * timeStep;
+    }
+
+    private Vector3 CalculateAcceleration(CelestialBody[] allBodies)
+    {
+        Vector3 gravitationalPull = Vector3.zero;
         foreach (var otherBody in allBodies)
         {
             if (otherBody == this)
                 continue;
 
-            float sqrDst = (otherBody.rb.position - rb.position).sqrMagnitude;
-            Vector3 forceDir = (otherBody.rb.position - rb.position).normalized;
+            Vector3 distanceVector = (otherBody.rb.position - rb.position);
+            float sqrDst = distanceVector.sqrMagnitude;
+            Vector3 forceDir = distanceVector.normalized;
             Vector3 force = forceDir * Universe.gravitationalConstant * mass * otherBody.mass / sqrDst;
             Vector3 acceleration = force / mass;
-            velocity += acceleration * timeStep;
+            gravitationalPull += acceleration;
         }
-    }
 
-    public void UpdateVelocity(Vector3 acceleration, float timeStep)    //< For if you want to calculate the acceleration in NBodySimulation instead of here
-    {
-        velocity += acceleration * timeStep;
+        return gravitationalPull;
     }
 
     public void UpdatePosition(float timeStep)
@@ -88,10 +89,38 @@ public class CelestialBody : GravityObject
             gameObject.name = bodyName;
     }
 
-    void OnValidate()   //< Is called every time any exposed field is modified in the editor
+    // private Vector3 CalculateOptimalOrbitVelocity()
+    // {
+    //     Vector3 gravitationalPull = CalculateAcceleration(NBodySimulation.bodies);
+    //     Vector3 rotationAxis = FindAnyObjectByType<CorrectOrbitChecker>().transform.up;
+    //     Vector3 optimalOrbitVelocity = Quaternion.AngleAxis(-50, rotationAxis) * -gravitationalPull;
+
+    //     return optimalOrbitVelocity;
+    // }
+
+    private void OnValidate() //< Is called every time any exposed field is modified in the editor
     {
         AssignValuesAutomatically();
     }
 
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying)
+            return;
 
+        // Attempted OptimalOrbitVelocity
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawLine(position, position + CalculateOptimalOrbitVelocity());
+
+        // Currently applied velocity -> Target for optimal?
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(position, position + (rb.velocity - (CalculateAcceleration(NBodySimulation.bodies))));
+
+        // Current rigidbody velocity
+        Gizmos.color = Color.black;
+        Gizmos.DrawLine(position, position + rb.velocity);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(position, position + CalculateAcceleration(NBodySimulation.bodies));
+    }
 }
