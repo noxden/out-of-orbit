@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: ad449e27c6489114bac1596f11a4e5b8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: ef820a68b0ce89845a61eac0cd3565cd, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1437965663}
-  m_IndirectSpecularColor: {r: 0.00035691136, g: 0.0006919248, b: 0.0016412722, a: 1}
+  m_IndirectSpecularColor: {r: 0.011655616, g: 0.009602105, b: 0.008878043, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11292,6 +11292,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1412223426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2419053242504306230, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
+  m_PrefabInstance: {fileID: 7838841020655994716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1412223428
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412223426}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18cfd91799034964d8f0972575db6e26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1437965662
 GameObject:
   m_ObjectHideFlags: 0
@@ -21369,9 +21395,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3087750498037105804, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.63016
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087750498037105804, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.815851
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087750498037105804, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.246784
+      objectReference: {fileID: 0}
     - target: {fileID: 4561633588489629376, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: m_Name
       value: Mech
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214738822891468813, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214738822891468813, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214738822891468813, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6963104469795401463, guid: 04fe2628519b5d7488c2511928ecf520, type: 3}
       propertyPath: sceneViewId
