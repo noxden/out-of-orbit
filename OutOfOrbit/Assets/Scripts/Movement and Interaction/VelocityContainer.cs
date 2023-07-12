@@ -6,5 +6,14 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class VelocityContainer : MonoBehaviour
 {
+    [SerializeField] private InputActionProperty velocityInput;
 
+    public Vector3 Velocity
+    {
+        get
+        {
+            Debug.Log($"Current velocity of {this.name} is {velocityInput.action.ReadValue<Vector3>()}.");
+            return velocityInput.action.ReadValue<Vector3>();
+        }
+    }
 }
