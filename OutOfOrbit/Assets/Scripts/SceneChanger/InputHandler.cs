@@ -37,20 +37,20 @@ public class InputHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        switch (Settings.defaultXRPlayer)
-        {
-            case PlayerType.CAVE:
-                thrustActionReference.action.Disable();
-                thrustActionReference.action.performed -= OnActionPerformed;
-                break;
-            case PlayerType.HMD:
-                foreach (InputActionReference entry in grabActionReferences)
-                {
-                    entry.action.Disable();
-                    entry.action.performed -= OnActionPerformed;
-                }
-                break;
-        }
+        // switch (Settings.defaultXRPlayer)    //< We don't want to take away the thrust or grab action from the players in the case that we disable the InputHandler under some circumstances.
+        // {
+        //     case PlayerType.CAVE:
+        //         thrustActionReference.action.Disable();
+        //         thrustActionReference.action.performed -= OnActionPerformed;
+        //         break;
+        //     case PlayerType.HMD:
+        //         foreach (InputActionReference entry in grabActionReferences)
+        //         {
+        //             entry.action.Disable();
+        //             entry.action.performed -= OnActionPerformed;
+        //         }
+        //         break;
+        // }
 
     }
 
