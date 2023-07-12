@@ -31,6 +31,19 @@ public class ClimbingProvider : LocomotionProvider
         if (!activeVelocities.Contains(provider))
         {
             activeVelocities.Add(provider);
+            system.xrOrigin.transform.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+    }
+
+    public void RemoveProvider(VelocityContainer provider)
+    {
+        if (activeVelocities.Contains(provider))
+        {
+            Vector3 lastVelocity = CollectControllerVelocity();
+            activeVelocities.Remove(provider);
+
+            if (activeVelocities.Count == 0)
+                system.xrOrigin.transform.transform.GetComponent<Rigidbody>().AddForce(-lastVelocity * 20);
         }
     }
 
@@ -50,14 +63,6 @@ public class ClimbingProvider : LocomotionProvider
             characterController.gameObject.transform.SetParent(null, true);
         else
             characterController.gameObject.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
-    }
-
-    public void RemoveProvider(VelocityContainer provider)
-    {
-        if (activeVelocities.Contains(provider))
-        {
-            activeVelocities.Remove(provider);
-        }
     }
 
     private void Update()
@@ -100,14 +105,6 @@ public class ClimbingProvider : LocomotionProvider
         velocity = origin.TransformDirection(velocity);
         velocity *= Time.deltaTime;
 
-        // if (characterController)
-        // {
-        //     characterController.Move(-velocity);
-        // }
-        // else
-        // {
-        //     origin.localPosition -= velocity;
-        // }
         origin.localPosition -= velocity;
     }
 

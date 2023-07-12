@@ -1069,6 +1069,8 @@ GameObject:
   - component: {fileID: 7812993008513272893}
   - component: {fileID: 5502857709482402545}
   - component: {fileID: 7850166425299700109}
+  - component: {fileID: 1184942115807955387}
+  - component: {fileID: 9070976865365287322}
   m_Layer: 0
   m_Name: HMD Player
   m_TagString: Untagged
