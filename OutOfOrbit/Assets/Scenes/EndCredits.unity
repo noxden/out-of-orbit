@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.020903334, g: 0.020020137, b: 0.022468181, a: 1}
+  m_IndirectSpecularColor: {r: 0.019770382, g: 0.019276856, b: 0.021955833, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -370,8 +370,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Daniel Heilmann\n\nIrina Nikolova\n\nfrom Pixabay\n\n\n\nSebastian Kostur
-    \nfor his Stable Diffusion integration\n\nToni the Canary\nfor blessing us with
-    his presence\n\n"
+    \nfor his Stable Diffusion integration\n\nLena Pauly and Canan A\u011ELU\xC7\nfor
+    their adorable cat paws design and models\n\nToni the Canary\nfor blessing us
+    with his presence\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 192d29003c52c6346abbe7c836f26208, type: 2}
   m_sharedMaterial: {fileID: -4012817184939610785, guid: 192d29003c52c6346abbe7c836f26208, type: 2}
