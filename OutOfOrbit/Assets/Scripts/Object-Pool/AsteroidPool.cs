@@ -10,9 +10,9 @@ public class Asteroid
     public bool expandable;
 }
 
-public sealed class Pool : MonoBehaviour
+public sealed class AsteroidPool : MonoBehaviour
 {
-    public static Pool singleton { set; get; }
+    public static AsteroidPool singleton { set; get; }
 
     public List<Asteroid> items;
     public List<GameObject> pooledItems;
@@ -23,11 +23,11 @@ public sealed class Pool : MonoBehaviour
         if(singleton == null)
         {
             singleton = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(singleton.gameObject);
+            singleton = this;
         }
     }
     // Start is called before the first frame update
