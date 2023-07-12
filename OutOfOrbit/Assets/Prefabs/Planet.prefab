@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4282400471468743690}
   - component: {fileID: 1826217400475035493}
   - component: {fileID: 7324342792592241438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 3871323007568478458}
   - component: {fileID: 7285991712912670802}
   - component: {fileID: 175737117384362908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

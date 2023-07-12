@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2905904713038763352}
   - component: {fileID: 4976265868308664415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnimatedPaw_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4290678135646718793}
   - component: {fileID: 4648784165388644572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1d521b95568e3924dacd407963f72ba8, type: 3}
       propertyPath: m_Name
       value: paw
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d521b95568e3924dacd407963f72ba8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1d521b95568e3924dacd407963f72ba8, type: 3}
       propertyPath: m_IsActive
