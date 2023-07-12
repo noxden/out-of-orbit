@@ -13,6 +13,12 @@ public class ClimbAnchor : XRBaseInteractable
         FindClimbingProvider();
     }
 
+    private void Start()
+    {
+        if (this.transform.localScale != Vector3.one)
+            Debug.LogWarning($"Watch out! The ClimbingAnchor \"{this.name}\" is on a scaled gameobject. This will cause your view to become distorted when holding onto it. Create an empty parent instead and put the ClimbingAnchor component on that.");
+    }
+
     private void FindClimbingProvider()
     {
         if (!climbingProvider)
@@ -29,8 +35,11 @@ public class ClimbAnchor : XRBaseInteractable
 
     private void TryAdd(IXRSelectInteractor interactor)
     {
-        if(interactor.transform.TryGetComponent(out VelocityContainer container))
+        if (interactor.transform.TryGetComponent(out VelocityContainer container))
+        {
             climbingProvider.AddProvider(container);
+            climbingProvider.AttachPlayerToClimbAnchor(this.transform);
+        }
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
@@ -41,8 +50,11 @@ public class ClimbAnchor : XRBaseInteractable
 
     private void TryRemove(IXRSelectInteractor interactor)
     {
-        if(interactor.transform.TryGetComponent(out VelocityContainer container))
+        if (interactor.transform.TryGetComponent(out VelocityContainer container))
+        {
             climbingProvider.RemoveProvider(container);
+            climbingProvider.DetachPlayerFromClimbAnchor(this.transform);
+        }
     }
 
     public override bool IsHoverableBy(IXRHoverInteractor interactor)

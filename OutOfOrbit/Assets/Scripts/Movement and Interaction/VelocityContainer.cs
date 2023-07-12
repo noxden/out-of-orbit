@@ -12,7 +12,7 @@ public class VelocityContainer : MonoBehaviour
     {
         get
         {
-            Debug.Log($"Current velocity of {this.name} is {velocityInput.action.ReadValue<Vector3>()}.");
+            // Debug.Log($"Current velocity of {this.name} is {velocityInput.action.ReadValue<Vector3>()}.");
             return velocityInput.action.ReadValue<Vector3>();
         }
     }

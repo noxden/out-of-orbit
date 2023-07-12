@@ -10,6 +10,8 @@ public class ClimbingProvider : LocomotionProvider
     [SerializeField] private CharacterController characterController;
     private bool isClimbing = false;
     private List<VelocityContainer> activeVelocities = new List<VelocityContainer>();
+    private List<Transform> attachedClimbAnchors = new List<Transform>();
+
     protected override void Awake()
     {
         base.Awake();
@@ -32,6 +34,24 @@ public class ClimbingProvider : LocomotionProvider
         }
     }
 
+    public void AttachPlayerToClimbAnchor(Transform climbAnchorTransform)
+    {
+        Debug.Log($"Attaching CharacterController {characterController.name} to ClimbAnchor ({climbAnchorTransform.name}).");
+
+        attachedClimbAnchors.Add(climbAnchorTransform);
+        characterController.gameObject.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
+    }
+
+    public void DetachPlayerFromClimbAnchor(Transform climbAnchorTransform)
+    {
+        Debug.Log($"Detaching CharacterController {characterController.name} from ClimbAnchor ({climbAnchorTransform.name}).");
+        attachedClimbAnchors.Remove(climbAnchorTransform);
+        if (attachedClimbAnchors.Count == 0)
+            characterController.gameObject.transform.SetParent(null, true);
+        else
+            characterController.gameObject.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
+    }
+
     public void RemoveProvider(VelocityContainer provider)
     {
         if (activeVelocities.Contains(provider))
@@ -47,6 +67,7 @@ public class ClimbingProvider : LocomotionProvider
         {
             ApplyVelocity();
         }
+
         TryEndClimb();
     }
 
@@ -79,14 +100,15 @@ public class ClimbingProvider : LocomotionProvider
         velocity = origin.TransformDirection(velocity);
         velocity *= Time.deltaTime;
 
-        if (characterController)
-        {
-            characterController.Move(-velocity);
-        }
-        else
-        {
-            origin.position -= velocity;
-        }
+        // if (characterController)
+        // {
+        //     characterController.Move(-velocity);
+        // }
+        // else
+        // {
+        //     origin.localPosition -= velocity;
+        // }
+        origin.localPosition -= velocity;
     }
 
     private Vector3 CollectControllerVelocity()
