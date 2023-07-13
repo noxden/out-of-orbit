@@ -8,6 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ClimbingProvider : LocomotionProvider
 {
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private Rigidbody rb;
     private bool isClimbing = false;
     private List<VelocityContainer> activeVelocities = new List<VelocityContainer>();
     private List<Transform> attachedClimbAnchors = new List<Transform>();
@@ -24,6 +25,9 @@ public class ClimbingProvider : LocomotionProvider
         {
             characterController = system.xrOrigin.GetComponent<CharacterController>();
         }
+
+        if (!rb)
+            rb = system.xrOrigin.GetComponent<Rigidbody>();
     }
 
     public void AddProvider(VelocityContainer provider)
@@ -31,7 +35,8 @@ public class ClimbingProvider : LocomotionProvider
         if (!activeVelocities.Contains(provider))
         {
             activeVelocities.Add(provider);
-            system.xrOrigin.transform.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
         }
     }
 
@@ -43,7 +48,10 @@ public class ClimbingProvider : LocomotionProvider
             activeVelocities.Remove(provider);
 
             if (activeVelocities.Count == 0)
-                system.xrOrigin.transform.transform.GetComponent<Rigidbody>().AddForce(-lastVelocity * 20);
+            {
+                rb.isKinematic = false;
+                rb.AddForce(-lastVelocity * 20);
+            }
         }
     }
 
