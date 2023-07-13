@@ -23,7 +23,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rim
-    second: {fileID: 2100000, guid: 2cac70d066a01234e9357ccd8913d191, type: 2}
+    second: {fileID: 2100000, guid: 7eb53156cdb73d341bfaeae360263ace, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
