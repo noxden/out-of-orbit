@@ -46,7 +46,6 @@ public class CelestialBody : GravityObject
     {
         AssignValuesAutomatically();
 
-        rb = GetComponent<Rigidbody>();
         rb.mass = mass;
         rb.useGravity = false;
         velocity = initialVelocity;
@@ -80,10 +79,19 @@ public class CelestialBody : GravityObject
 
     private void AssignValuesAutomatically()
     {
-        mass = surfaceGravity * radius * radius / Universe.gravitationalConstant;
+        if (surfaceGravity == 0)
+            mass = 0;
+        else
+            mass = surfaceGravity * radius * radius / Universe.gravitationalConstant;
+            
+        if (rb == null)
+            rb = GetComponent<Rigidbody>();
+        rb.mass = mass;
+
         if (meshHolder == null)
             meshHolder = GetComponentInChildren<MeshRenderer>().transform;
         meshHolder.localScale = Vector3.one * radius;
+
         if (bodyName != null)
             gameObject.name = bodyName;
     }
