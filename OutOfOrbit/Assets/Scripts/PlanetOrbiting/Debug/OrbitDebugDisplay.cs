@@ -86,7 +86,10 @@ public class OrbitDebugDisplay : MonoBehaviour
 
             if (useThickLines)
             {
-                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
+                var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>(true);
+                if (!lineRenderer)
+                    continue;
+
                 lineRenderer.gameObject.SetActive(true);
                 lineRenderer.enabled = true;
                 lineRenderer.positionCount = drawPoints[bodyIndex].Length;
@@ -105,9 +108,7 @@ public class OrbitDebugDisplay : MonoBehaviour
                 // Hide renderer
                 var lineRenderer = bodies[bodyIndex].gameObject.GetComponentInChildren<LineRenderer>();
                 if (lineRenderer)
-                {
                     lineRenderer.enabled = false;
-                }
             }
 
         }
