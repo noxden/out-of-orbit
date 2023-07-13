@@ -17,7 +17,7 @@ public class ResetOnInvis : MonoBehaviour
     private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody>();
-        HMDPlayer player = FindObjectOfType<HMDPlayer>();
+        HMDPlayer player = FindObjectOfType<HMDPlayer>(true);
         HMDPlayerTransform = player.transform;
     }
     private void Start()
