@@ -444,8 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1578333812004550369}
-  characterController: {fileID: 7850166425299700109}
-  rb: {fileID: 0}
+  controller: {fileID: 0}
 --- !u!1 &6266168696255405577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4101714445170807145}
   - component: {fileID: 5007483589599649474}
+  - component: {fileID: 7782558058545658398}
   - component: {fileID: 7812993008513272893}
   - component: {fileID: 5502857709482402545}
   - component: {fileID: 7850166425299700109}
@@ -1094,7 +1094,7 @@ Transform:
   - {fileID: 8399499994823258577}
   - {fileID: 5958736407624597586}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5007483589599649474
 MonoBehaviour:
@@ -1108,6 +1108,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a966bd28f56e9d4baddce7ea74d18a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7782558058545658398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306744004087069619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fb4db0ad1f1c549b09781e5f61c0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  provider: {fileID: 0}
+  character: {fileID: 0}
+  body: {fileID: 0}
+  thrustInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Thrust Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 0f821081-cb96-436e-905f-3ad753f3c100
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -517070095854444330, guid: a844e9ae88ddd8c408b93f90668799ad, type: 3}
+  movementAcceleration: 0.1
+  maxMovementVelocity: 0.3
+  defaultParent: {fileID: 0}
 --- !u!114 &7812993008513272893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,7 +1204,7 @@ Rigidbody:
   m_GameObject: {fileID: 8306744004087069619}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
