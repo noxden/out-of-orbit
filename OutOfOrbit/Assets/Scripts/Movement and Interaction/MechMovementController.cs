@@ -68,7 +68,7 @@ public class MechMovementController : MonoBehaviour
         velocity = mech.velocity;
         angularVelocity = mech.angularVelocity;
 
-        if (mech.position.magnitude > 900) mech.transform.position = Vector3.zero;  //< If too far away, move back to center   //! FOR DEBUGGING PURPOSES ONLY
+        if (mech.position.magnitude > 1000) mech.transform.position = Vector3.zero;  //< If too far away, move back to center   //! FOR DEBUGGING PURPOSES ONLY
     }
 
     private void Move()
