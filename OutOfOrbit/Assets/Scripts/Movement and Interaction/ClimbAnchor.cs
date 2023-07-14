@@ -38,7 +38,7 @@ public class ClimbAnchor : XRBaseInteractable
         if (interactor.transform.TryGetComponent(out VelocityContainer container))
         {
             climbingProvider.AddProvider(container);
-            climbingProvider.AttachPlayerToClimbAnchor(this.transform);
+            climbingProvider.controller.AttachToAnchor(this);
         }
     }
 
@@ -52,8 +52,8 @@ public class ClimbAnchor : XRBaseInteractable
     {
         if (interactor.transform.TryGetComponent(out VelocityContainer container))
         {
+            climbingProvider.controller.DetachFromAnchor(this);  //< Needs to be called before removing the hand (VelocityContainer) from the ClimbingProvider in order to allow calculation of lastVelocity.
             climbingProvider.RemoveProvider(container);
-            climbingProvider.DetachPlayerFromClimbAnchor(this.transform);
         }
     }
 

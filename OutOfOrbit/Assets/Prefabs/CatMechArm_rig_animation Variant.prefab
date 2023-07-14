@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatMechArm_rig_animation Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72212f29ad5792045982300e81505ae2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3470825154614554307, guid: 72212f29ad5792045982300e81505ae2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

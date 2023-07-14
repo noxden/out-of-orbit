@@ -7,11 +7,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// </summary>
 public class ClimbingProvider : LocomotionProvider
 {
-    [SerializeField] private CharacterController characterController;
-    [SerializeField] private Rigidbody rb;
-    private bool isClimbing = false;
+    private Transform origin;
+    public AstronautController controller;
+    public bool isClimbing { get; private set; } = false;
     private List<VelocityContainer> activeVelocities = new List<VelocityContainer>();
-    private List<Transform> attachedClimbAnchors = new List<Transform>();
 
     protected override void Awake()
     {
@@ -21,13 +20,8 @@ public class ClimbingProvider : LocomotionProvider
 
     private void FindCharacterController()
     {
-        if (!characterController)
-        {
-            characterController = system.xrOrigin.GetComponent<CharacterController>();
-        }
-
-        if (!rb)
-            rb = system.xrOrigin.GetComponent<Rigidbody>();
+        if (!origin)
+            origin = system.xrOrigin.transform;
     }
 
     public void AddProvider(VelocityContainer provider)
@@ -35,8 +29,6 @@ public class ClimbingProvider : LocomotionProvider
         if (!activeVelocities.Contains(provider))
         {
             activeVelocities.Add(provider);
-            rb.velocity = Vector3.zero;
-            rb.isKinematic = true;
         }
     }
 
@@ -44,34 +36,11 @@ public class ClimbingProvider : LocomotionProvider
     {
         if (activeVelocities.Contains(provider))
         {
-            Vector3 lastVelocity = CollectControllerVelocity();
             activeVelocities.Remove(provider);
-
-            if (activeVelocities.Count == 0)
-            {
-                rb.isKinematic = false;
-                rb.AddForce(-lastVelocity * 20);
-            }
         }
     }
 
-    public void AttachPlayerToClimbAnchor(Transform climbAnchorTransform)
-    {
-        Debug.Log($"Attaching CharacterController {characterController.name} to ClimbAnchor ({climbAnchorTransform.name}).");
 
-        attachedClimbAnchors.Add(climbAnchorTransform);
-        characterController.gameObject.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
-    }
-
-    public void DetachPlayerFromClimbAnchor(Transform climbAnchorTransform)
-    {
-        Debug.Log($"Detaching CharacterController {characterController.name} from ClimbAnchor ({climbAnchorTransform.name}).");
-        attachedClimbAnchors.Remove(climbAnchorTransform);
-        if (attachedClimbAnchors.Count == 0)
-            characterController.gameObject.transform.SetParent(null, true);
-        else
-            characterController.gameObject.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
-    }
 
     private void Update()
     {
@@ -84,7 +53,7 @@ public class ClimbingProvider : LocomotionProvider
         TryEndClimb();
     }
 
-    private void TryBeginClimb()
+    private void TryBeginClimb()    // TODO: Invoke events here to notify other classes that climbing has started / stopped
     {
         if (CanClimb() && BeginLocomotion())
         {
@@ -108,7 +77,6 @@ public class ClimbingProvider : LocomotionProvider
     private void ApplyVelocity()
     {
         Vector3 velocity = CollectControllerVelocity();
-        Transform origin = system.xrOrigin.transform;
 
         velocity = origin.TransformDirection(velocity);
         velocity *= Time.deltaTime;
@@ -116,7 +84,7 @@ public class ClimbingProvider : LocomotionProvider
         origin.localPosition -= velocity;
     }
 
-    private Vector3 CollectControllerVelocity()
+    public Vector3 CollectControllerVelocity()
     {
         Vector3 totalVelocity = Vector3.zero;
         foreach (VelocityContainer container in activeVelocities)
