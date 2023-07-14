@@ -1121,8 +1121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   provider: {fileID: 0}
+  player: {fileID: 0}
   character: {fileID: 0}
   body: {fileID: 0}
+  head: {fileID: 7410960395077692510}
   thrustInput:
     m_UseReference: 1
     m_Action:

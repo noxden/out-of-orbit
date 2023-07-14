@@ -8,9 +8,8 @@ public class CAVEPlayer : XRPlayer
     private Vector3 viveTrackerRotationCorrectionVector = new Vector3(90, 0, 0);
     private Transform helperTransform;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         helperTransform = new GameObject().transform;
         helperTransform.SetParent(this.transform, worldPositionStays: false);
         helperTransform.name = "NetworkPlayer Head Rotation Helper";

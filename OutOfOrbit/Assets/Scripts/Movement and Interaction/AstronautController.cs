@@ -10,7 +10,7 @@ public class AstronautController : MonoBehaviour
     [SerializeField] private HMDPlayer player;
     [SerializeField] private CharacterController character;
     [SerializeField] private Rigidbody body;
-    private TrackedXRDevice head;
+    [SerializeField] private TrackedXRDevice head;
     [Space(10)]
 
     [SerializeField] private InputActionProperty thrustInput;
@@ -54,11 +54,11 @@ public class AstronautController : MonoBehaviour
 
     private void OnEnable()
     {
-        thrustAction.Enable();
+        thrustAction?.Enable();
     }
     private void OnDisable()
     {
-        thrustAction.Disable();
+        thrustAction?.Disable();
     }
 
     /// <summary>
@@ -123,6 +123,9 @@ public class AstronautController : MonoBehaviour
 
         if (!provider)
             provider = FindAnyObjectByType<ClimbingProvider>();
+
+        if (!player)
+            player = GetComponent<HMDPlayer>();
 
         if (!head)
             head = player.head;

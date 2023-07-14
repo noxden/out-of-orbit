@@ -15,7 +15,7 @@ public abstract class XRPlayer : MonoBehaviour
     public TrackedXRDevice leftHand { get; protected set; }
     public TrackedXRDevice rightHand { get; protected set; }
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         TrackedXRDevice[] trackedXRDevices = GetComponentsInChildren<TrackedXRDevice>();
         foreach (TrackedXRDevice device in trackedXRDevices)
