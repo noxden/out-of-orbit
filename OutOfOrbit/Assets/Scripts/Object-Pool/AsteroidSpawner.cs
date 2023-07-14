@@ -16,8 +16,7 @@ public class AsteroidSpawner : MonoBehaviour
             GameObject mAsteroid = AsteroidPool.singleton.Get("asteroid");
             if (mAsteroid != null)
             {
-                mAsteroid.transform.position = this.transform.position
-                        + new Vector3(Random.Range(-30, 30), 0, 0);
+                mAsteroid.transform.position = center.position + new Vector3(Random.Range(-30, 30), Random.Range(-50, 50), Random.Range(-30, 30));
                 mAsteroid.SetActive(true);
             }
         }

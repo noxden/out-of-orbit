@@ -37,7 +37,7 @@ public class ResetOnInvis : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        initialVelocity = Random.Range(30f, 150f);
+        initialVelocity = Random.Range(60f, 300f);
         myRigidbody.AddForce((HMDPlayerTransform.position - transform.position).normalized * initialVelocity);
     }
 

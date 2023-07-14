@@ -74,6 +74,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d589ed68ac0ad24ea9f15d5d2ad86c7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7944808369633883264}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d589ed68ac0ad24ea9f15d5d2ad86c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6146527621443833892}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d589ed68ac0ad24ea9f15d5d2ad86c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1243894240315644779}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d589ed68ac0ad24ea9f15d5d2ad86c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3973107575806309388}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d589ed68ac0ad24ea9f15d5d2ad86c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8632574802357663388}
   m_SourcePrefab: {fileID: 100100000, guid: 3d589ed68ac0ad24ea9f15d5d2ad86c7, type: 3}
 --- !u!1 &1316124479096749996 stripped
 GameObject:
@@ -94,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 70
   center: {fileID: 0}
-  asteroidPos: {x: 0, y: 0, z: 0}
+  initialVelocity: 0
   HMDPlayerTransform: {fileID: 0}
 --- !u!54 &7944808369633883264
 Rigidbody:
@@ -115,11 +127,88 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &6146527621443833892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316124479096749996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1243894240315644779}
+  - {fileID: 3973107575806309388}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1243894240315644779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316124479096749996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &3973107575806309388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316124479096749996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!135 &8632574802357663388
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316124479096749996}
+  m_Material: {fileID: 13400000, guid: cfd97d943f6deb749b7ae92e4128d31d, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.019981455
+  m_Center: {x: -0.0006812159, y: 0.00009680353, z: 0.00022055209}
