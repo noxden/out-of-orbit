@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 
 public class AstronautController : MonoBehaviour
 {
+    [Header("These fields should assign themselves during play mode")]
+    [SerializeField] private ClimbingProvider provider;
+    [SerializeField] private CharacterController character;
+    [SerializeField] private Rigidbody body;
+    [Space(10)]
+
     [SerializeField] private InputActionProperty thrustInput;
     private InputAction thrustAction;
     private Vector2 thrustValue
@@ -18,10 +24,7 @@ public class AstronautController : MonoBehaviour
     [SerializeField] private float movementAcceleration;
     [SerializeField] private float maxMovementVelocity;
 
-    [Header("These fields should assign themselves during play mode")]
-    [SerializeField] private ClimbingProvider provider;
-    [SerializeField] private CharacterController character;
-    [SerializeField] private Rigidbody body;
+    [Space(10), SerializeField] private Transform defaultParent = null; //< Does not need to be SerializedField anymore
 
     private bool m_isAttached;
     public bool isAttached
@@ -77,7 +80,7 @@ public class AstronautController : MonoBehaviour
 
         attachedClimbAnchors.Add(anchorTransform);
 
-        character.gameObject.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
+        character.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
         isAttached = true;
     }
 
@@ -91,12 +94,21 @@ public class AstronautController : MonoBehaviour
         {
             Vector3 lastVelocity = provider.CollectControllerVelocity();
 
-            character.gameObject.transform.SetParent(defaultParent, worldPositionStays: true);
+            character.transform.SetParent(defaultParent, worldPositionStays: true);
             isAttached = false;
             body.AddForce(-lastVelocity * 100);
         }
         else
             character.gameObject.transform.SetParent(attachedClimbAnchors[attachedClimbAnchors.Count - 1], worldPositionStays: true);
+    }
+
+    public void SetDefaultParent(Transform newDefault)
+    {
+        defaultParent = newDefault;
+
+        //> So that the parenting happens when player floats into hangar without climbing
+        if (this.transform.parent == null && newDefault != null)
+            this.transform.SetParent(newDefault);
     }
 
     private void FindComponents()
