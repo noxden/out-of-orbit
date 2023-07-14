@@ -444,8 +444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1578333812004550369}
-  velocityModifier: 0
   characterController: {fileID: 7850166425299700109}
+  rb: {fileID: 0}
 --- !u!1 &6266168696255405577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 7850166425299700109}
   - component: {fileID: 1184942115807955387}
   - component: {fileID: 9070976865365287322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HMD Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

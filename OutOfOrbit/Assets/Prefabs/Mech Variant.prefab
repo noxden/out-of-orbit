@@ -620,6 +620,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2602222417220610973}
     m_Modifications:
+    - target: {fileID: 670770998414038513, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683383713980356747, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993640186574360803, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138564205906489961, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3628436382345556309, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
       propertyPath: m_Name
       value: CatMechArm_rig_animation
@@ -667,6 +683,18 @@ PrefabInstance:
     - target: {fileID: 4112097650596064239, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -14.208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206145555634282935, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393790219625438968, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810095742473949845, guid: 6ec90848a18f6264589790fe1b93e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
