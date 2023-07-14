@@ -21,7 +21,10 @@ public class NBodySimulation : MonoBehaviour
         if (instance == null)
             instance = this;
         else
-            Destroy(this);
+        {
+            Destroy(instance);
+            instance = this;
+        }
 
         _bodies = FindObjectsOfType<CelestialBody>();
         Time.fixedDeltaTime = Universe.physicsTimeStep;

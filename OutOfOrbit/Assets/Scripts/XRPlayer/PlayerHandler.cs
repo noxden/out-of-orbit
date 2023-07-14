@@ -12,7 +12,10 @@ public class PlayerHandler : MonoBehaviour
         if (instance == null)
             instance = this;
         else
+        {
             DestroyImmediate(this);
+            instance = this;
+        }
 
         DisplayCountChecker();
         SetCurrentPlayerBasedOnSettings();
