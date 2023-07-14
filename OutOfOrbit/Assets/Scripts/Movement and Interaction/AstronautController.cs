@@ -7,8 +7,10 @@ public class AstronautController : MonoBehaviour
 {
     [Header("These fields should assign themselves during play mode")]
     [SerializeField] private ClimbingProvider provider;
+    [SerializeField] private HMDPlayer player;
     [SerializeField] private CharacterController character;
     [SerializeField] private Rigidbody body;
+    private TrackedXRDevice head;
     [Space(10)]
 
     [SerializeField] private InputActionProperty thrustInput;
@@ -70,7 +72,7 @@ public class AstronautController : MonoBehaviour
     private void ApplyThrustForce()
     {
         if (body.velocity.magnitude < maxMovementVelocity)
-            body.AddForce(body.transform.forward * thrustValue.y * movementAcceleration, ForceMode.Acceleration);
+            body.AddForce(head.transform.forward * thrustValue.y * movementAcceleration, ForceMode.Acceleration);
     }
 
     public void AttachToAnchor(ClimbAnchor anchor)
@@ -121,5 +123,8 @@ public class AstronautController : MonoBehaviour
 
         if (!provider)
             provider = FindAnyObjectByType<ClimbingProvider>();
+
+        if (!head)
+            head = player.head;
     }
 }
